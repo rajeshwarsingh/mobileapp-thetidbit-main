@@ -1,0 +1,294 @@
+{
+    "onboardingScreen": {
+        "title1": "Dapatkan pembaruan harian",
+        "title2": "Dapatkan berita langsung",
+        "title3": "Berita dari sumber tepercaya",
+        "description": "Lorem sangat wortel, nasihat tomat elit. Mattie sebagai beberapa biarawati, wilayah. Net's Maurist, dan Mourning Dui Nibh Salad Till.",
+        "next": "Lanjut",
+        "skip": "Melewati"
+    },
+    "loginScreen": {
+        "login": "Gabung",
+        "pleaseConfirm": "Harap konfirmasi kode negara Anda dan masukkan nomor ponsel Anda",
+        "mobileNo": "Masukkan nomor ponsel Anda",
+        "verification": "*Kami akan mengirim OTP untuk verifikasi",
+        "or": "Atau login menggunakan"
+    },
+    "registerScreen": {
+        "register": "Daftar",
+        "pleaseCreate": "Harap buat akun Anda untuk melanjutkan menggunakan aplikasi ini",
+        "name": "Masukkan nama Anda",
+        "email": "Masukkan ID Email Anda",
+        "mobile": "Masukkan nomor ponsel Anda",
+        "or": "Atau daftar menggunakan"
+    },
+    "verificationScreen": {
+        "verification": "Verifikasi OTP",
+        "confirmation": "Kode konfirmasi telah dikirim ke Anda",
+        "mobileNo": "nomor telepon seluler",
+        "verifyNow": "Verifikasi sekarang",
+        "resend": "Ulang"
+    },
+    "languageScreen": {
+        "selectLanguage": "Pilih bahasamu",
+        "english": "Bahasa inggris",
+        "hindi": "Hindi",
+        "gujarati": "Gujarati",
+        "marathi": "Marathi",
+        "tamil": "Tamil",
+        "arabic": "Arab",
+        "spanish": "Orang Spanyol"
+    },
+    "bottomTab": {
+        "home": "Rumah",
+        "category": "Kategori",
+        "video": "Video",
+        "weather": "Cuaca",
+        "profile": "Profil",
+        "exitApp": "Ketuk Kembali Lagi untuk Keluar dari Aplikasi"
+    },
+    "homeScreen": {
+        "search": "Mencari",
+        "breakingNews": "Breaking News",
+        "seeAll": "Lihat semua",
+        "news": "Berita",
+        "sports": "Olahraga",
+        "regional": "Berita regional",
+        "finance": "Keuangan",
+        "education": "Pendidikan",
+        "health": "Kesehatan",
+        "other": "Lainnya",
+        "localNews": "Berita Lokal",
+        "nationalNews": "Berita Nasional",
+        "worldNews": "Berita Dunia",
+        "politicsNews": "Berita Politik"
+    },
+    "breakingNewsScreen": {
+        "breakingNews": "Breaking News"
+    },
+    "localNewsScreen": {
+        "localNews": "Berita Lokal"
+    },
+    "nationalNewsScreen": {
+        "nationalNews": "Berita Nasional"
+    },
+    "worldNewsScreen": {
+        "worldNews": "Berita Dunia"
+    },
+    "politicNewsScreen": {
+        "politicsNews": "Berita Politik"
+    },
+    "newsDetailScreen": {
+        "following": "Mengikuti",
+         "add":"Ditambahkan!!",
+        "remove":"DIHAPUS"
+    },
+    "videoDetailScreen": {
+        "following": "Mengikuti",
+         "add":"Ditambahkan!!",
+        "remove":"DIHAPUS"
+    },
+    "commentScreen": {
+        "comment": "Komentar",
+        "writeComment": "Tulis komentar Anda"
+    },
+    "liveTvScreen": {
+        "live": "HIDUP",
+        "channel": "Saluran CNBC"
+    },
+    "notificationScreen": {
+        "notification": "Pemberitahuan",
+        "breakingNews": "Berita Terpisah:",
+        "punjabAlert": "'Punjab Alert' sebelum kunjungan Modi",
+        "minAgo": "2 menit yang lalu",
+        "noNotification": "Belum ada pemberitahuan",
+        "remove": "Pemberitahuan dihapus."
+    },
+    "searchScreen": {
+        "search": "Mencari",
+        "recentSearch": "Pencarian Terbaru",
+        "clearAll": "Bersihkan semua",
+        "breakingNews": "Breaking News",
+        "sportNews": "Berita Olahraga",
+        "channel": "Saluran CNBC",
+        "trendingNews": "Berita tren",
+        "categories": "Kategori",
+        "news": "Berita",
+        "localNews": "Berita Lokal",
+        "nationalNews": "Berita Nasional",
+        "worldNews": "Berita Dunia",
+        "politics": "Politik",
+        "allNews": "Semua berita",
+        "sports": "Olahraga",
+        "cricket": "Jangkrik",
+        "basketball": "Bola basket",
+        "tennis": "Tenis",
+        "golf": "Golf",
+        "running": "Berlari",
+        "volleyball": "Bola voli",
+        "boxing": "Tinju",
+        "swimming": "Renang",
+        "football": "Sepak bola",
+        "all": "Semua",
+        "finance": "Keuangan",
+        "personal": "Keuangan pribadi",
+        "covid": "Covid-19 & Ekonomi",
+        "business": "Bisnis",
+        "stockMarket": "Pasar saham",
+        "smallBusiness": "Bisnis kecil",
+        "savings": "Tabungan",
+        "other": "Lainnya",
+        "bollywoodNews": "Berita Bollywood",
+        "lifestyle": "Gaya hidup",
+        "food": "Makanan",
+        "horoscope": "Horoskop",
+        "entertainment": "Hiburan",
+        "heath": "Heath",
+        "education": "Pendidikan",
+        "regionalNews": "Berita regional"
+    },
+    "categoryScreen": {
+        "categories": "Kategori",
+        "news": "Berita",
+        "localNews": "Berita Lokal",
+        "nationalNews": "Berita Nasional",
+        "worldNews": "Berita Dunia",
+        "politics": "Politik",
+        "allNews": "Semua berita",
+        "sports": "Olahraga",
+        "cricket": "Jangkrik",
+        "basketball": "Bola basket",
+        "tennis": "Tenis",
+        "golf": "Golf",
+        "running": "Berlari",
+        "volleyball": "Bola voli",
+        "boxing": "Tinju",
+        "swimming": "Renang",
+        "football": "Sepak bola",
+        "all": "Semua",
+        "finance": "Keuangan",
+        "personal": "Keuangan pribadi",
+        "covid": "Covid-19 & Ekonomi",
+        "business": "Bisnis",
+        "stockMarket": "Pasar saham",
+        "smallBusiness": "Bisnis kecil",
+        "savings": "Tabungan",
+        "other": "Lainnya",
+        "bollywoodNews": "Berita Bollywood",
+        "lifestyle": "Gaya hidup",
+        "food": "Makanan",
+        "horoscope": "Horoskop",
+        "entertainment": "Hiburan",
+        "heath": "Kesehatan",
+        "education": "Pendidikan",
+        "regionalNews": "Berita regional"
+    },
+    "sportScreen": {
+        "finance": "Keuangan",
+        "personal": "Keuangan pribadi",
+        "seeAll": "Lihat semua",
+        "economy": "Covid-19 & Ekonomi",
+        "business": "Bisnis",
+        "stockMarket": "Pasar saham",
+        "smallBusiness": "Bisnis kecil",
+        "savings": "Tabungan"
+    },
+    "videoScreen": {
+        "video": "Video"
+    },
+    "weatherScreen": {
+        "tomorrow": "Besok",
+        "today": "Hari ini",
+        "day": "7 hari",
+        "forecast": "Prakiraan hari ini",
+        "weather": "Cuaca",
+        "selectCity": "Pilih Kota"
+    },
+    "todayScreen": {
+        "forecast": "ramalan",
+        "morning": "Pagi",
+        "afternoon": "Sore",
+        "evening": "Malam",
+        "hourlyForecast": "Prakiraan per jam",
+        "now": "Sekarang"
+    },
+    "tomorrowScreen": {
+        "forecast": "ramalan",
+        "morning": "Pagi",
+        "afternoon": "Sore",
+        "evening": "Malam",
+        "hourlyForecast": "Prakiraan per jam"
+    },
+    "loader": {
+        "pleaseWait": "Mohon tunggu"
+    },
+    "profileScreen": {
+        "profile": "Profil",
+        "editProfile": "Sunting profil",
+        "channels": "Saluran",
+        "bookmark": "Penanda buku",
+        "settings": "Pengaturan",
+        "termsCondition": "Syarat dan Kondisi",
+        "rate": "Kecepatan",
+        "logout": "Keluar",
+        "areYouLogout": "Apakah Anda yakin ingin keluar?",
+        "cancel": "Membatalkan",
+        "rateUs": "Nilai kami",
+        "rateDescription": "Beri tahu yang lain apa yang Anda pikirkan. Tolong beri peringkat aplikasi kami",
+        "send": "Kirim"
+    },
+    "editProfileScreen": {
+        "editProfile": "Sunting profil",
+        "changeImage": "Ganti gambar",
+        "enterName": "Masukkan nama lengkapmu",
+        "enterEmail": "Masukkan ID Email Anda",
+        "enterMobile": "Masukkan nomor telepon Anda",
+        "update": "Memperbarui",
+        "changeProfile": "Ubah foto profil",
+        "camera": "Kamera",
+        "gallery": "Galeri",
+        "remove": "Hapus gambar",
+        "removeImage": "Foto profil dihapus.",
+        "successfully": "Profil berhasil diperbarui !!",
+        "ok": "Oke"
+    },
+    "bookmarkScreen": {
+        "bookmark": "Penanda buku",
+        "empty": "Daftar Simpan Kosong",
+        "remove": "Hapus dari Bookmark."
+    },
+    "settingScreen": {
+        "settings": "Pengaturan",
+        "pushNotification": "Pemberitahuan push",
+        "language": "Bahasa",
+        "readerMode": "Mode pembaca"
+    },
+    "mainLanguageScreen": {
+        "language": "Bahasa",
+        "update": "Memperbarui"
+    },
+    "readerModeScreen": {
+        "readerMode": "Mode pembaca",
+        "auto": "Mobil",
+        "enabled": "Diaktifkan",
+        "disabled": "Dengan disabilitas",
+        "update": "Memperbarui"
+    },
+    "termsConditionScreen": {
+        "termsCondition": "Syarat dan Kondisi",
+        "descriptionMain": "Kita bisa melakukannya. Rasa sakit atau atau kesenangan yang keluar. Ikuti keinginan reguler untuk alasan untuk menolak beberapa ketidaknyamanan. Dan untuk bagaimana. Dan konsekuensinya dikatakan sebagai waktu yang ditinggalkan.",
+        "descriptionSub": "Kita bisa melakukannya. Rasa sakit atau atau kesenangan yang keluar. Ikuti keinginan reguler untuk alasan untuk menolak beberapa ketidaknyamanan. Dan untuk bagaimana. Dan konsekuensinya dikatakan sebagai Deserunt waktu. Possimus itu. Rasa sakit atau atau kesenangan yang keluar. Ikuti keinginan reguler untuk kesenangan ditolak. Rasa sakit atau atau kesenangan yang keluar. Ikuti keinginan reguler untuk menolak kesenangan"
+    },
+    "channelScreen": {
+        "channels": "Saluran",
+        "followChannel": "Ikuti saluran Anda",
+        "follow": "Mengikuti",
+        "following": "Mengikuti"
+    },
+    "followChannelScreen": {
+        "channel": "saluran",
+        "follow": "Mengikuti",
+        "live": "Hidup",
+        "followers": "pengikut"
+    }
+}

@@ -1,0 +1,304 @@
+{
+    "onboardingScreen": {
+        "title1": "Get daily update",
+        "title2": "Get quick news",
+        "title3": "News from Trusted sources",
+        "description": "Stay informed with our Daily Update service. Get a curated summary of the latest news and trends delivered to you every day, saving you time and keeping you up-to-date.",
+        "description1": "Stay informed with our Daily Update service. Get a curated summary of the latest news and trends delivered to you every day, saving you time and keeping you up-to-date.",
+        "description2": "Get quick news updates in a nutshell. Stay up-to-date with concise and bite-sized news summaries that provide you with the essential information you need, delivered conveniently and efficiently.",
+        "description3": "Get news from trusted sources. Stay informed with reliable and accurate information from reputable news outlets, ensuring you have access to credible news and insights.",
+        "next": "Next",
+        "skip": "Skip"
+    },
+    "loginScreen": {
+        "login": "Login",
+        "pleaseConfirm": "Please confirm your country code and enter your mobile number",
+        "mobileNo": "Enter your mobile number",
+        "verification": "*We will sent OTP for verification",
+        "or": "Or Login using"
+    },
+    "registerScreen": {
+        "register": "Register",
+        "pleaseCreate": "Please create your account to continue using this application",
+        "name": "Enter your name",
+        "email": "Enter your email id",
+        "mobile": "Enter your mobile number",
+        "or": "Or register using"
+    },
+    "verificationScreen": {
+        "verification": "OTP verification",
+        "confirmation": "Confirmation code has been sent to tou your ",
+        "mobileNo": "mobile no",
+        "verifyNow": "Verify now",
+        "resend": "Resend"
+    },
+    "languageScreen": {
+        "selectLanguage": "Select your language",
+        "english": "English",
+        "hindi": "Hindi",
+        "gujarati": "Gujarati",
+        "marathi": "Marathi",
+        "tamil": "Tamil",
+        "arabic": "Arabic",
+        "spanish": "Spanish"
+    },
+    "FavouriteScreenScreen": {
+        "selectFavourite": "Select your Favourite News",
+        "english": "English",
+        "hindi": "Hindi",
+        "marathi": "Marathi"
+    },
+    "bottomTab": {
+        "home": "Home",
+        "category": "Category",
+        "video": "General",
+        "weather": "Weather",
+        "profile": "Profile",
+        "exitApp": "Tap back again to exit the App"
+    },
+    "homeScreen": {
+        "search": "Search",
+        "breakingNews": "Breaking news",
+        "seeAll": "see all",
+        "news": "News",
+        "sports": "Sports",
+        "regional": "Regional news",
+        "finance": "Finance",
+        "education": "Education",
+        "health": "Health",
+        "other": "Other",
+        "localNews": "Health",
+        "nationalNews": "Entertainment",
+        "worldNews": "World news",
+        "politicsNews": "Business"
+    },
+    "breakingNewsScreen": {
+        "breakingNews": "Breaking news"
+    },
+    "localNewsScreen": {
+        "localNews": "Health"
+    },
+    "nationalNewsScreen": {
+        "nationalNews": "Entertainment"
+    },
+    "worldNewsScreen": {
+        "worldNews": "World news"
+    },
+    "politicNewsScreen": {
+        "politicsNews": "Business"
+    },
+    "newsDetailScreen": {
+        "following": "Following",
+        "add": "Bookmark Added",
+        "remove": "Removed Bookmark"
+    },
+    "videoDetailScreen": {
+        "following": "Following",
+        "add": "Added!!",
+        "remove": "Removed"
+    },
+    "commentScreen": {
+        "comment": "Comment",
+        "writeComment": "Write your comment"
+    },
+    "liveTvScreen": {
+        "live": "LIVE",
+        "channel": "CNBC channel"
+    },
+    "notificationScreen": {
+        "notification": "Notification",
+        "breakingNews": "Breaking News: ",
+        "punjabAlert": "'Punjab alert' before Modi visit",
+        "minAgo": "2 min ago",
+        "noNotification": "No notification yet",
+        "remove": "Notification removed."
+    },
+    "searchScreen": {
+        "search": "Search",
+        "recentSearch": "Recent search",
+        "clearAll": "clear all",
+        "breakingNews": "Breaking news",
+        "sportNews": "Sport news",
+        "channel": "CNBC channel",
+        "trendingNews": "Trending news",
+        "categories": "Categories",
+        "news": "News",
+        "localNews": "Health",
+        "nationalNews": "Entertainment",
+        "worldNews": "World news",
+        "politics": "Politics",
+        "allNews": "All news",
+        "sports": "Sports",
+        "cricket": "Cricket",
+        "basketball": "Basketball",
+        "tennis": "Tennis",
+        "golf": "Golf",
+        "running": "Running",
+        "volleyball": "Volleyball",
+        "boxing": "Boxing",
+        "swimming": "Swimming",
+        "football": "Football",
+        "all": "All",
+        "finance": "Finance",
+        "personal": "Personal Finance",
+        "covid": "COVID-19 & The economy",
+        "business": "Business",
+        "stockMarket": "Stock market",
+        "smallBusiness": "SmallBusiness",
+        "savings": "Savings",
+        "other": "Other",
+        "bollywoodNews": "Bollywood news",
+        "lifestyle": "Lifestyle",
+        "food": "Food",
+        "horoscope": "Horoscope",
+        "entertainment": "Entertainment",
+        "heath": "Heath",
+        "education": "Education",
+        "regionalNews": "Regional news"
+    },
+    "categoryScreen": {
+        "categories": "Categories",
+        "news": "News",
+        "localNews": "Health",
+        "nationalNews": "Entertainment",
+        "worldNews": "World news",
+        "politics": "Politics",
+        "allNews": "All news",
+        "sports": "Sports",
+        "cricket": "Cricket",
+        "basketball": "Basketball",
+        "tennis": "Tennis",
+        "golf": "Golf",
+        "running": "Running",
+        "volleyball": "Volleyball",
+        "boxing": "Boxing",
+        "swimming": "Swimming",
+        "football": "Football",
+        "all": "All",
+        "finance": "Finance",
+        "personal": "Personal Finance",
+        "covid": "COVID-19 & The economy",
+        "business": "Business",
+        "stockMarket": "Stock market",
+        "smallBusiness": "SmallBusiness",
+        "savings": "Savings",
+        "other": "Other",
+        "bollywoodNews": "Bollywood news",
+        "lifestyle": "Lifestyle",
+        "food": "Food",
+        "horoscope": "Horoscope",
+        "entertainment": "Entertainment",
+        "heath": "Healthcare",
+        "education": "Education",
+        "regionalNews": "Regional news"
+    },
+    "sportScreen": {
+        "finance": "Finance",
+        "personal": "Personal finance",
+        "seeAll": "see all",
+        "economy": "COVID-19 & The economy",
+        "business": "Business",
+        "stockMarket": "Stock market",
+        "smallBusiness": "SmallBusiness",
+        "savings": "Savings"
+    },
+    "videoScreen": {
+        "video": "General"
+    },
+    "weatherScreen": {
+        "tomorrow": "Tomorrow",
+        "today": "Today",
+        "day": "7 Day",
+        "forecast": "Today's forecast",
+        "weather": "Weather",
+        "selectCity": "Select city"
+    },
+    "todayScreen": {
+        "forecast": "forecast",
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening",
+        "hourlyForecast": "Hourly forecast",
+        "now": "Now"
+    },
+    "tomorrowScreen": {
+        "forecast": "forecast",
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening",
+        "hourlyForecast": "Hourly forecast"
+    },
+    "loader": {
+        "pleaseWait": "Please wait"
+    },
+    "profileScreen": {
+        "profile": "Profile",
+        "editProfile": "Edit profile",
+        "channels": "Channels",
+        "bookmark": "Bookmark",
+        "settings": "Settings",
+        "termsCondition": "Terms and condition",
+        "rate": "Rate",
+        "logout": "Logout",
+        "areYouLogout": "Are you sure you want to logout?",
+        "cancel": "Cancel",
+        "rateUs": "Rate us",
+        "rateDescription": "Tell other what you think. please give rate our app",
+        "send": "Send"
+    },
+    "editProfileScreen": {
+        "editProfile": "Edit profile",
+        "changeImage": "Change image",
+        "enterName": "Enter your full name",
+        "enterEmail": "Enter your email id",
+        "enterMobile": "Enter your phone number",
+        "update": "Update",
+        "changeProfile": "Change profile Photo",
+        "camera": "Camera",
+        "gallery": "Gallery",
+        "remove": "Remove image",
+        "removeImage": "Profile photo removed.",
+        "successfully": "Profile updated successfully!!",
+        "ok": "Ok"
+
+    },
+    "bookmarkScreen": {
+        "bookmark": "Bookmark",
+        "empty": "Empty save list",
+        "remove": "Remove from bookmark."
+    },
+    "settingScreen": {
+        "settings": "Settings",
+        "pushNotification": "Push notification",
+        "language": "Language",
+        "readerMode": "Reader mode"
+    },
+    "mainLanguageScreen": {
+        "language": "Language",
+        "update": "Update"
+    },
+    "readerModeScreen": {
+        "readerMode": "Reader mode",
+        "auto": "Auto",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "update": "Update"
+    },
+    "termsConditionScreen": {
+        "termsCondition": "Terms and condition",
+        "descriptionMain": "Possimus ipsa ea. Dolorum ea vel et sit voluptatem quis ex. Sequi iusto velit ratione voluptas repudiandae aliquid molestiae non. Et enim quam. Et consequatur sunt dicta esse eveniet tempore deserunt.",
+        "descriptionSub": "Possimus ipsa ea. Dolorum ea vel et sit voluptatem quis ex. Sequi iusto velit ratione voluptas repudiandae aliquid molestiae non. Et enim quam. Et consequatur sunt dicta esse eveniet tempore deserunt.Possimus ipsa ea. Dolorum ea vel et sit voluptatem quis ex. Sequi iusto velit ratione voluptas repudiandae Possimus ipsa ea. Dolorum ea vel et sit voluptatem quis ex. Sequi iusto velit ratione voluptas repudiandae "
+    },
+    "channelScreen": {
+        "channels": "Channels",
+        "followChannel": "Follow your channel",
+        "follow": "Follow",
+        "following": "Following"
+    },
+    "followChannelScreen": {
+        "channel": "channel",
+        "follow": "Follow",
+        "live": "Live",
+        "followers": "followers"
+    }
+}

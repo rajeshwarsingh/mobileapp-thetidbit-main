@@ -1,0 +1,87 @@
+{
+  "expo": {
+    "scheme": "thetidbit",
+    "name": "thetidbit",
+    "slug": "mobileapp-thetidbit",
+    "version": "3.0.50",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.mobileappthetidbit",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.mobileappthetidbit",
+      "userInterfaceStyle": "dark",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "thetidbit.in",
+              "pathPrefix": "/"
+            },
+            {
+              "scheme": "thetidbit"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ],
+      "versionCode": 78,
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d387da48-df44-42c3-8ba7-32a994a8c149"
+      },
+      "oneSignalAppId": "e20037d9-067f-417f-b8f8-dc919bb0b6dd"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/perf",
+      "@react-native-firebase/crashlytics",
+      "@react-native-firebase/auth",
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "production"
+        }
+      ],
+      "./plugins/withAndroidVerifiedLinksWorkaround",
+      [
+        "expo-updates",
+        {
+          "username": "rajan23024"
+        }
+      ]
+    ]
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-9155008277126927~8333991217"
+  }
+}

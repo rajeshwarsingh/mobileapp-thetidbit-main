@@ -1,0 +1,294 @@
+{
+    "onboardingScreen": {
+        "title1": "احصل على تحديث يومي",
+        "title2": "احصل على أخبار حية",
+        "title3": "أخبار من مصادر موثوقة",
+        "description": "لوريم الجزر جدا ، الطماطم تقدم النخبة. ماتي في عدد قليل من الراهبات ، المنطقة. Net's Maurist ، وحداد DUI NIBH سلطة حتى.",
+        "next": "التالي",
+        "skip": "يتخطى"
+    },
+    "loginScreen": {
+        "login": "تسجيل الدخول",
+        "pleaseConfirm": "يرجى تأكيد رمز بلدك وإدخال رقم هاتفك المحمول",
+        "mobileNo": "أدخل رقم هاتفك المحمول",
+        "verification": "*سنرسل OTP للتحقق",
+        "or": "أو تسجيل الدخول باستخدام"
+    },
+    "registerScreen": {
+        "register": "يسجل",
+        "pleaseCreate": "يرجى إنشاء حسابك لمتابعة استخدام هذا التطبيق",
+        "name": "أدخل أسمك",
+        "email": "أدخل معرف البريد الإلكتروني الخاص بك",
+        "mobile": "أدخل رقم هاتفك المحمول",
+        "or": "أو سجل باستخدام"
+    },
+    "verificationScreen": {
+        "verification": "التحقق من OTP",
+        "confirmation": "تم إرسال رمز التأكيد إلى TOU الخاص بك",
+        "mobileNo": "رقم الموبايل",
+        "verifyNow": "تحقق الآن",
+        "resend": "إعادة إرسال"
+    },
+    "languageScreen": {
+        "selectLanguage": "اختر لغتك",
+        "english": "إنجليزي",
+        "hindi": "الهندية",
+        "gujarati": "غوجاراتي",
+        "marathi": "المهاراتية",
+        "tamil": "التاميل",
+        "arabic": "عربي",
+        "spanish": "الأسبانية"
+    },
+    "bottomTab": {
+        "home": "مسكن",
+        "category": "فئة",
+        "video": "فيديو",
+        "weather": "طقس",
+        "profile": "الملف الشخصي",
+        "exitApp": "اضغط مرة أخرى للخروج من التطبيق"
+    },
+    "homeScreen": {
+        "search": "يبحث",
+        "breakingNews": "أخبار عاجلة",
+        "seeAll": "اظهار الكل",
+        "news": "أخبار",
+        "sports": "رياضات",
+        "regional": "أخبار إقليمية",
+        "finance": "تمويل",
+        "education": "تعليم",
+        "health": "صحة",
+        "other": "آخر",
+        "localNews": "اخبار محلية",
+        "nationalNews": "اخبار وطنية",
+        "worldNews": "اخبار العالم",
+        "politicsNews": "أخبار السياسة"
+    },
+    "breakingNewsScreen": {
+        "breakingNews": "أخبار عاجلة"
+    },
+    "localNewsScreen": {
+        "localNews": "اخبار محلية"
+    },
+    "nationalNewsScreen": {
+        "nationalNews": "اخبار وطنية"
+    },
+    "worldNewsScreen": {
+        "worldNews": "اخبار العالم"
+    },
+    "politicNewsScreen": {
+        "politicsNews": "أخبار السياسة"
+    },
+    "newsDetailScreen": {
+        "following": "التالية",
+         "add":"تمت الإضافة !!",
+        "remove":"إزالة"
+    },
+    "videoDetailScreen": {
+        "following": "التالية",
+         "add":"تمت الإضافة !!",
+        "remove":"إزالة"
+    },
+    "commentScreen": {
+        "comment": "تعليق",
+        "writeComment": "اكتب تعليقك"
+    },
+    "liveTvScreen": {
+        "live": "يعيش",
+        "channel": "قناة CNBC"
+    },
+    "notificationScreen": {
+        "notification": "تنبيه",
+        "breakingNews": "أخبار عاجلة:",
+        "punjabAlert": "\"تنبيه البنجاب\" قبل زيارة مودي",
+        "minAgo": "قبل 2 دقيقة",
+        "noNotification": "لا إشعار بعد",
+        "remove": "الإخطار تمت إزالته."
+    },
+    "searchScreen": {
+        "search": "يبحث",
+        "recentSearch": "البحث الأخير",
+        "clearAll": "امسح الكل",
+        "breakingNews": "أخبار عاجلة",
+        "sportNews": "أخبار الرياضة",
+        "channel": "قناة CNBC",
+        "trendingNews": "أخبار تتجه",
+        "categories": "فئات",
+        "news": "أخبار",
+        "localNews": "اخبار محلية",
+        "nationalNews": "اخبار وطنية",
+        "worldNews": "اخبار العالم",
+        "politics": "سياسة",
+        "allNews": "جميع الأخبار",
+        "sports": "رياضات",
+        "cricket": "كريكيت",
+        "basketball": "كرة سلة",
+        "tennis": "تنس",
+        "golf": "الجولف",
+        "running": "ادارة",
+        "volleyball": "الكرة الطائرة",
+        "boxing": "ملاكمة",
+        "swimming": "سباحة",
+        "football": "كرة القدم",
+        "all": "الجميع",
+        "finance": "تمويل",
+        "personal": "تمويل شخصي",
+        "covid": "Covid-19 والاقتصاد",
+        "business": "اعمال",
+        "stockMarket": "سوق الأوراق المالية",
+        "smallBusiness": "أعمال صغيرة",
+        "savings": "مدخرات",
+        "other": "آخر",
+        "bollywoodNews": "أخبار بوليوود",
+        "lifestyle": "نمط الحياة",
+        "food": "غذاء",
+        "horoscope": "خريطة الابراج",
+        "entertainment": "وسائل الترفيه",
+        "heath": "هيث",
+        "education": "تعليم",
+        "regionalNews": "أخبار إقليمية"
+    },
+    "categoryScreen": {
+        "categories": "فئات",
+        "news": "أخبار",
+        "localNews": "اخبار محلية",
+        "nationalNews": "اخبار وطنية",
+        "worldNews": "اخبار العالم",
+        "politics": "سياسة",
+        "allNews": "جميع الأخبار",
+        "sports": "رياضات",
+        "cricket": "كريكيت",
+        "basketball": "كرة سلة",
+        "tennis": "تنس",
+        "golf": "الجولف",
+        "running": "ادارة",
+        "volleyball": "الكرة الطائرة",
+        "boxing": "ملاكمة",
+        "swimming": "سباحة",
+        "football": "كرة القدم",
+        "all": "الجميع",
+        "finance": "تمويل",
+        "personal": "تمويل شخصي",
+        "covid": "Covid-19 والاقتصاد",
+        "business": "اعمال",
+        "stockMarket": "سوق الأوراق المالية",
+        "smallBusiness": "أعمال صغيرة",
+        "savings": "مدخرات",
+        "other": "آخر",
+        "bollywoodNews": "أخبار بوليوود",
+        "lifestyle": "نمط الحياة",
+        "food": "غذاء",
+        "horoscope": "خريطة الابراج",
+        "entertainment": "وسائل الترفيه",
+        "heath": "رعاية صحية",
+        "education": "تعليم",
+        "regionalNews": "أخبار إقليمية"
+    },
+    "sportScreen": {
+        "finance": "تمويل",
+        "personal": "تمويل شخصي",
+        "seeAll": "اظهار الكل",
+        "economy": "Covid-19 والاقتصاد",
+        "business": "اعمال",
+        "stockMarket": "سوق الأوراق المالية",
+        "smallBusiness": "أعمال صغيرة",
+        "savings": "مدخرات"
+    },
+    "videoScreen": {
+        "video": "فيديو"
+    },
+    "weatherScreen": {
+        "tomorrow": "الغد",
+        "today": "اليوم",
+        "day": "7 أيام",
+        "forecast": "توقعات اليوم",
+        "weather": "طقس",
+        "selectCity": "اختر مدينة"
+    },
+    "todayScreen": {
+        "forecast": "تنبؤ بالمناخ",
+        "morning": "صباح",
+        "afternoon": "بعد الظهر",
+        "evening": "اخر النهار",
+        "hourlyForecast": "توقعات كل ساعة",
+        "now": "حاليا"
+    },
+    "tomorrowScreen": {
+        "forecast": "تنبؤ بالمناخ",
+        "morning": "صباح",
+        "afternoon": "بعد الظهر",
+        "evening": "اخر النهار",
+        "hourlyForecast": "توقعات كل ساعة"
+    },
+    "loader": {
+        "pleaseWait": "أرجو الإنتظار"
+    },
+    "profileScreen": {
+        "profile": "الملف الشخصي",
+        "editProfile": "تعديل الملف الشخصي",
+        "channels": "القنوات",
+        "bookmark": "المرجعية",
+        "settings": "إعدادات",
+        "termsCondition": "أحكام وشروط",
+        "rate": "معدل",
+        "logout": "تسجيل خروج",
+        "areYouLogout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        "cancel": "يلغي",
+        "rateUs": "قيمنا",
+        "rateDescription": "أخبر البعض ما رأيك. يرجى إعطاء معدل تطبيقنا",
+        "send": "إرسال"
+    },
+    "editProfileScreen": {
+        "editProfile": "تعديل الملف الشخصي",
+        "changeImage": "تغيير الصورة",
+        "enterName": "أدخل اسمك الكامل",
+        "enterEmail": "أدخل معرف البريد الإلكتروني الخاص بك",
+        "enterMobile": "أدخل رقم هاتفك",
+        "update": "تحديث",
+        "changeProfile": "تغيير صورة الملف الشخصي",
+        "camera": "آلة تصوير",
+        "gallery": "صالة عرض",
+        "remove": "إزالة الصورة",
+        "removeImage": "تمت إزالة صورة الملف الشخصي.",
+        "successfully": "تم تحديث الملف الشخصي بنجاح!!",
+        "ok": "موافق"
+    },
+    "bookmarkScreen": {
+        "bookmark": "المرجعية",
+        "empty": "قائمة حفظ فارغة",
+        "remove": "ترفع من المرجعية."
+    },
+    "settingScreen": {
+        "settings": "إعدادات",
+        "pushNotification": "إشعار الدفع",
+        "language": "لغة",
+        "readerMode": "وضع القارئ"
+    },
+    "mainLanguageScreen": {
+        "language": "لغة",
+        "update": "تحديث"
+    },
+    "readerModeScreen": {
+        "readerMode": "وضع القارئ",
+        "auto": "آلي",
+        "enabled": "تمكين",
+        "disabled": "عاجز",
+        "update": "تحديث"
+    },
+    "termsConditionScreen": {
+        "termsCondition": "أحكام وشروط",
+        "descriptionMain": "نستطيع فعلها. ألم أو متعة من هو خارج. اتبع الرغبة المعتادة في أسباب المتعة للتخلص من بعض الانزعاج. وكيف. ويقال إن العواقب قد تم التخلي عنها.",
+        "descriptionSub": "نستطيع فعلها. ألم أو متعة من هو خارج. اتبع الرغبة المعتادة في أسباب المتعة للتخلص من بعض الانزعاج. وكيف. ويقال إن العواقب هي الوقت الذي يتم فيه deserunt.possimus. ألم أو متعة من هو خارج. اتبع الرغبة المعتادة لرفض المتعة. ألم أو متعة من هو خارج. اتبع الرغبة المنتظمة في التنصل من المتعة"
+    },
+    "channelScreen": {
+        "channels": "القنوات",
+        "followChannel": "اتبع قناتك",
+        "follow": "يتبع",
+        "following": "التالية"
+    },
+    "followChannelScreen": {
+        "channel": "قناة",
+        "follow": "يتبع",
+        "live": "يعيش",
+        "followers": "متابعون"
+    }
+}

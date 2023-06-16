@@ -1,0 +1,304 @@
+{
+    "onboardingScreen": {
+        "title1": "दैनिक अद्यतन प्राप्त करें",
+        "title2": "लाइव समाचार प्राप्त करें",
+        "title3": "विश्वसनीय स्रोतों से समाचार",
+        "description": "लोरम बहुत गाजर, टमाटर की सलाह एलीट। मैटी कुछ ईस्ट नन, क्षेत्र के रूप में। नेट के मौरिस्ट, और शोकसू डुई निभ सलाद तक।",
+        "next": "अगला",
+        "skip": "छोड़ें"
+    },
+    "loginScreen": {
+        "login": "लॉग इन करें",
+        "pleaseConfirm": "कृपया अपने देश कोड की पुष्टि करें और अपना मोबाइल नंबर दर्ज करें",
+        "mobileNo": "अपना मोबाइल नंबर दर्ज करें",
+        "verification": "*हम सत्यापन के लिए ओटीपी भेजेंगे",
+        "or": "या लॉगिन का उपयोग कर लॉगिन करें"
+    },
+    "registerScreen": {
+        "register": "पंजीकरण करवाना",
+        "pleaseCreate": "कृपया इस एप्लिकेशन का उपयोग जारी रखने के लिए अपना खाता बनाएं",
+        "name": "अपना नाम दर्ज करें",
+        "email": "अपना ईमेल आईडी दर्ज करें",
+        "mobile": "अपना मोबाइल नंबर दर्ज करें",
+        "or": "या पंजीकरण का उपयोग करें"
+    },
+    "verificationScreen": {
+        "verification": "ओटीपी सत्यापन",
+        "confirmation": "TOU को TOU के लिए पुष्टिकरण कोड भेजा गया है",
+        "mobileNo": "मोबाइल न",
+        "verifyNow": "अभी सत्यापित करें",
+        "resend": "पुन: भेजें"
+    },
+    "languageScreen": {
+        "selectLanguage": "अपनी भाषा का चयन करें",
+        "english": "अंग्रेज़ी",
+        "hindi": "हिन्दी",
+        "gujarati": "गुजराती",
+        "marathi": "मराठी",
+        "tamil": "तामिल",
+        "arabic": "अरबी",
+        "spanish": "स्पैनिश"
+    },
+    "FavouriteScreenScreen": {
+        "selectFavourite": "अपनी पसंदीदा खबर चुनें",
+        "english": "अंग्रेज़ी",
+        "hindi": "हिन्दी",
+        "gujarati": "गुजराती",
+        "marathi": "मराठी",
+        "tamil": "तामिल",
+        "arabic": "अरबी",
+        "spanish": "स्पैनिश"
+    },
+    "bottomTab": {
+        "home": "घर",
+        "category": "श्रेणी",
+        "video": "साधारण",
+        "weather": "मौसम",
+        "profile": "प्रोफ़ाइल",
+        "exitApp": "ऐप से बाहर निकलने के लिए फिर से टैप करें"
+    },
+    "homeScreen": {
+        "search": "खोज",
+        "breakingNews": "आज की ताजा खबर",
+        "seeAll": "सभी देखें",
+        "news": "समाचार",
+        "sports": "खेल",
+        "regional": "क्षेत्रीय समाचार",
+        "finance": "वित्त",
+        "education": "शिक्षा",
+        "health": "स्वास्थ्य",
+        "other": "अन्य",
+        "localNews": "स्थानीय समाचार",
+        "nationalNews": "राष्ट्रीय समाचार",
+        "worldNews": "विश्व समाचार",
+        "politicsNews": "राजनीति समाचार"
+    },
+    "breakingNewsScreen": {
+        "breakingNews": "आज की ताजा खबर"
+    },
+    "localNewsScreen": {
+        "localNews": "स्थानीय समाचार"
+    },
+    "nationalNewsScreen": {
+        "nationalNews": "राष्ट्रीय समाचार"
+    },
+    "worldNewsScreen": {
+        "worldNews": "विश्व समाचार"
+    },
+    "politicNewsScreen": {
+        "politicsNews": "राजनीति समाचार"
+    },
+    "newsDetailScreen": {
+        "following": "निम्नलिखित",
+         "add":"जोड़ा गया !!",
+        "remove":"निकाला गया"
+    },
+    "videoDetailScreen": {
+        "following": "निम्नलिखित",
+         "add":"जोड़ा गया !!",
+        "remove":"निकाला गया"
+    },
+    "commentScreen": {
+        "comment": "टिप्पणी",
+        "writeComment": "अपनी टिप्पणी लिखें"
+    },
+    "liveTvScreen": {
+        "live": "लाइव",
+        "channel": "सीएनबीसी चैनल"
+    },
+    "notificationScreen": {
+        "notification": "अधिसूचना",
+        "breakingNews": "आज की ताजा खबर:",
+        "punjabAlert": "मोदी की यात्रा से पहले 'पंजाब अलर्ट'",
+        "minAgo": "2 मिनट पहले",
+        "noNotification": "अभी तक कोई अधिसूचना नहीं",
+        "remove": "अधिसूचना हटा दी गई।"
+    },
+    "searchScreen": {
+        "search": "खोज",
+        "recentSearch": "हाल ही में खोज",
+        "clearAll": "सभी साफ करें",
+        "breakingNews": "आज की ताजा खबर",
+        "sportNews": "खेल समाचार",
+        "channel": "सीएनबीसी चैनल",
+        "trendingNews": "ट्रेंडिंग समाचार",
+        "categories": "श्रेणियाँ",
+        "news": "समाचार",
+        "localNews": "स्थानीय समाचार",
+        "nationalNews": "राष्ट्रीय समाचार",
+        "worldNews": "विश्व समाचार",
+        "politics": "राजनीति",
+        "allNews": "सभी समाचार",
+        "sports": "खेल",
+        "cricket": "क्रिकेट",
+        "basketball": "बास्केटबाल",
+        "tennis": "टेनिस",
+        "golf": "गोल्फ़",
+        "running": "दौड़ना",
+        "volleyball": "वालीबाल",
+        "boxing": "मुक्केबाज़ी",
+        "swimming": "तैराकी",
+        "football": "फ़ुटबॉल",
+        "all": "सभी",
+        "finance": "वित्त",
+        "personal": "व्यक्तिगत वित्त",
+        "covid": "कोविड -19 और अर्थव्यवस्था",
+        "business": "व्यवसाय",
+        "stockMarket": "शेयर बाजार",
+        "smallBusiness": "छोटा व्यवसाय",
+        "savings": "बचत",
+        "other": "अन्य",
+        "bollywoodNews": "बॉलीवुड नेवस",
+        "lifestyle": "जीवन शैली",
+        "food": "भोजन",
+        "horoscope": "राशिफल",
+        "entertainment": "मनोरंजन",
+        "heath": "हीथ",
+        "education": "शिक्षा",
+        "regionalNews": "क्षेत्रीय समाचार"
+    },
+    "categoryScreen": {
+        "categories": "श्रेणियाँ",
+        "news": "समाचार",
+        "localNews": "स्थानीय समाचार",
+        "nationalNews": "राष्ट्रीय समाचार",
+        "worldNews": "विश्व समाचार",
+        "politics": "राजनीति",
+        "allNews": "सभी समाचार",
+        "sports": "खेल",
+        "cricket": "क्रिकेट",
+        "basketball": "बास्केटबाल",
+        "tennis": "टेनिस",
+        "golf": "गोल्फ़",
+        "running": "दौड़ना",
+        "volleyball": "वालीबाल",
+        "boxing": "मुक्केबाज़ी",
+        "swimming": "तैराकी",
+        "football": "फ़ुटबॉल",
+        "all": "सभी",
+        "finance": "वित्त",
+        "personal": "व्यक्तिगत वित्त",
+        "covid": "कोविड -19 और अर्थव्यवस्था",
+        "business": "व्यवसाय",
+        "stockMarket": "शेयर बाजार",
+        "smallBusiness": "छोटा व्यवसाय",
+        "savings": "बचत",
+        "other": "अन्य",
+        "bollywoodNews": "बॉलीवुड नेवस",
+        "lifestyle": "जीवन शैली",
+        "food": "भोजन",
+        "horoscope": "राशिफल",
+        "entertainment": "मनोरंजन",
+        "heath": "स्वास्थ्य देखभाल",
+        "education": "शिक्षा",
+        "regionalNews": "क्षेत्रीय समाचार"
+    },
+    "sportScreen": {
+        "finance": "वित्त",
+        "personal": "व्यक्तिगत वित्त",
+        "seeAll": "सभी देखें",
+        "economy": "कोविड -19 और अर्थव्यवस्था",
+        "business": "व्यवसाय",
+        "stockMarket": "शेयर बाजार",
+        "smallBusiness": "छोटा व्यवसाय",
+        "savings": "बचत"
+    },
+    "videoScreen": {
+        "video": "वीडियो"
+    },
+    "weatherScreen": {
+        "tomorrow": "कल का दिन",
+        "today": "आज",
+        "day": "7 दिन",
+        "forecast": "आज का पूर्वानुमान",
+        "weather": "मौसम",
+        "selectCity": "शहर चुनें"
+    },
+    "todayScreen": {
+        "forecast": "भविष्यवाणी",
+        "morning": "सुबह",
+        "afternoon": "दोपहर बाद",
+        "evening": "शाम",
+        "hourlyForecast": "प्रति घंटा पूर्वानुमान",
+        "now": "अब"
+    },
+    "tomorrowScreen": {
+        "forecast": "भविष्यवाणी",
+        "morning": "सुबह",
+        "afternoon": "दोपहर बाद",
+        "evening": "शाम",
+        "hourlyForecast": "प्रति घंटा पूर्वानुमान"
+    },
+    "loader": {
+        "pleaseWait": "कृपया प्रतीक्षा करें"
+    },
+    "profileScreen": {
+        "profile": "प्रोफ़ाइल",
+        "editProfile": "प्रोफ़ाइल संपादित करें",
+        "channels": "चैनल",
+        "bookmark": "बुकमार्क",
+        "settings": "समायोजन",
+        "termsCondition": "नियम व शर्तें",
+        "rate": "भाव",
+        "logout": "लॉग आउट",
+        "areYouLogout": "क्या आप लॉग आउट करना चाहते हैं?",
+        "cancel": "रद्द करना",
+        "rateUs": "हमें रेटिंग दें",
+        "rateDescription": "दूसरे को बताएं कि आप क्या सोचते हैं। कृपया हमारे ऐप को दर दें",
+        "send": "भेजना"
+    },
+    "editProfileScreen": {
+        "editProfile": "प्रोफ़ाइल संपादित करें",
+        "changeImage": "चित्र को बदलें",
+        "enterName": "अपना पूरा नाम भरें",
+        "enterEmail": "अपना ईमेल आईडी दर्ज करें",
+        "enterMobile": "अपना दूरभाष क्रमांक दर्ज करें",
+        "update": "अद्यतन",
+        "changeProfile": "प्रोफ़ाइल फोटो बदलें",
+        "camera": "कैमरा",
+        "gallery": "गेलरी",
+        "remove": "छवि निकालें",
+        "removeImage": "प्रोफ़ाइल फोटो हटा दिया गया।",
+        "successfully": "प्रोफाइल को सफलतापूर्वक अपडेट किया गया!!",
+        "ok": "ठीक"
+    },
+    "bookmarkScreen": {
+        "bookmark": "बुकमार्क",
+        "empty": "खाली सहेजें सूची",
+        "remove": "बुकमार्क से निकालें।"
+    },
+    "settingScreen": {
+        "settings": "समायोजन",
+        "pushNotification": "सर्वर पुश नोटीफिकेशन",
+        "language": "भाषा",
+        "readerMode": "पाठक विधा"
+    },
+    "mainLanguageScreen": {
+        "language": "भाषा",
+        "update": "अद्यतन"
+    },
+    "readerModeScreen": {
+        "readerMode": "पाठक विधा",
+        "auto": "ऑटो",
+        "enabled": "सक्रिय",
+        "disabled": "अक्षम",
+        "update": "अद्यतन"
+    },
+    "termsConditionScreen": {
+        "termsCondition": "नियम व शर्तें",
+        "descriptionMain": "हम इसे बना सकते हैं। दर्द या एक खुशी जो बाहर है। कुछ असुविधा को दूर करने के लिए खुशी के कारणों की नियमित इच्छा का पालन करें। और कैसे के लिए। और परिणामों को समय छोड़ दिया जाता है।",
+        "descriptionSub": "हम इसे बना सकते हैं। दर्द या एक खुशी जो बाहर है। कुछ असुविधा को दूर करने के लिए खुशी के कारणों की नियमित इच्छा का पालन करें। और कैसे के लिए। और परिणामों को समय deserunt.possimus कहा जाता है। दर्द या एक खुशी जो बाहर है। खारिज करने के लिए खुशी की नियमित इच्छा का पालन करें। दर्द या एक खुशी जो बाहर है। खुशी को दोहराने की नियमित इच्छा का पालन करें"
+    },
+    "channelScreen": {
+        "channels": "चैनल",
+        "followChannel": "अपने चैनल का पालन करें",
+        "follow": "पालन ​​करना",
+        "following": "निम्नलिखित"
+    },
+    "followChannelScreen": {
+        "channel": "चैनल",
+        "follow": "पालन ​​करना",
+        "live": "रहना",
+        "followers": "अनुयायियों"
+    }
+}
