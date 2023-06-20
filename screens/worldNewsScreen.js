@@ -243,7 +243,7 @@ const WorldNewsScreen = (props) => {
             color={Colors.black}
           />
         </TouchableOpacity>
-        <Text style={Fonts.Bold18Black}>Sports</Text>
+        <Text style={Fonts.Bold18Black}>{tr("sports")}</Text>
       </View>
 
       <FlatList

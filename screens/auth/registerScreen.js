@@ -18,7 +18,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors, Fonts, Default } from "../../constants/style";
 import { useTranslation } from "react-i18next";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Loader from "../../components/loader";
+import Loader from "../../components/loader-simple";
 import { saveUser } from '../../api/index';
 const { height } = Dimensions.get("window");
 
@@ -52,11 +52,11 @@ const RegisterScreen = (props) => {
       return;
     }
 
-    if (!email) {
-      setAlertMessage('Please enter your email address.');
-      setAlertVisible(true);
-      return;
-    }
+    // if (!email) {
+    //   setAlertMessage('Please enter your email address.');
+    //   setAlertVisible(true);
+    //   return;
+    // }
 
     if (!/^[a-zA-Z ]+$/.test(name)) {
       setAlertMessage('Invalid name. Only alphabets and spaces are allowed.');
@@ -70,7 +70,7 @@ const RegisterScreen = (props) => {
       return;
     }
 
-    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+    if (email && !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       setAlertMessage('Invalid email address.');
       setAlertVisible(true);
       return;
@@ -92,7 +92,7 @@ const RegisterScreen = (props) => {
 
     } catch (e) {
       // LOG THE ERROR HERE
-      console.log("Error in handleRegister :",e)
+      // console.log("Error in handleRegister :",e)
     }
 
   };

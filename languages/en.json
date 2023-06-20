@@ -58,17 +58,19 @@
     },
     "homeScreen": {
         "search": "Search",
-        "breakingNews": "Breaking news",
         "seeAll": "see all",
-        "news": "News",
+        "breakingNews": "Breaking news",
         "sports": "Sports",
+        "health": "Health",
+        "entertainment": "Entertainment",
+        "technology":"Technology",
+        "news": "News",
         "regional": "Regional news",
         "finance": "Finance",
         "education": "Education",
-        "health": "Health",
         "other": "Other",
         "localNews": "Health",
-        "nationalNews": "Entertainment",
+        "nationalNews": "National News",
         "worldNews": "World news",
         "politicsNews": "Business"
     },
@@ -76,16 +78,20 @@
         "breakingNews": "Breaking news"
     },
     "localNewsScreen": {
-        "localNews": "Health"
+        "localNews": "Local News",
+        "health": "Health"
     },
     "nationalNewsScreen": {
-        "nationalNews": "Entertainment"
+        "nationalNews": "Entertainment",
+        "entertainment": "Entertainment"
     },
     "worldNewsScreen": {
-        "worldNews": "World news"
+        "worldNews": "World news",
+        "sports": "Sports"
     },
     "politicNewsScreen": {
-        "politicsNews": "Business"
+        "politicsNews": "Business",
+        "technology":"Technology"
     },
     "newsDetailScreen": {
         "following": "Following",
@@ -271,7 +277,8 @@
         "settings": "Settings",
         "pushNotification": "Push notification",
         "language": "Language",
-        "readerMode": "Reader mode"
+        "readerMode": "Reader mode",
+        "preferred-news": "Preferred News"
     },
     "mainLanguageScreen": {
         "language": "Language",

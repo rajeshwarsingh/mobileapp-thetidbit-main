@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import IntlPhoneInput from "react-native-intl-phone-input";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Loader from "../../components/loader";
+import Loader from "../../components/loader-simple";
 import {getUser} from "../../api/index"
 
 const { height } = Dimensions.get("window");
@@ -58,7 +58,7 @@ const LoginScreen = (props) => {
 
     } catch (e) {
       setVisible(false);
-      console.log("error in login", e);
+      // console.log("error in login", e);
       alert('Error in login')
     }
 

@@ -7,28 +7,45 @@ import Modal from 'react-native-modal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors, Fonts, Default } from "../constants/style";
 import NavigationContext from '../components/NavigationContext';
-import Loader from "../components/loader";
+import Loader from "../components/loader-simple";
 import {updateUser} from '../api/index'
 const { height } = Dimensions.get("window");
 
+const categoriesList = [
+  { id: 1, name: 'General', icon: 'category' },
+  { id: 2, name: 'Sports', icon: 'sports' },
+  { id: 3, name: 'Health', icon: 'fitness-center' },
+  { id: 4, name: 'Entertainment', icon: 'movie' },
+  // { id: 5, name: 'UpBihar', icon: 'category' },
+  // { id: 6, name: 'Maharashtra', icon: 'category' },
+];
+
 const FavouriteScreenScreen = (props) => {
-  // setting
-  const { category,updateCategory } = useContext(NavigationContext);
-    let { mobile='', prefLanguage="",setting=false } = props.route.params;
+
+  const { category ,updateCategory } = useContext(NavigationContext);
+
+  let { mobile='', prefLanguage="",setting=false } = props.route.params;
+  
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [visible, setVisible] = useState(false);
+  const [cat, setcat] = useState([]);
+  const [profile, setProfile] = useState({})
   const { t, i18n } = useTranslation();
 
   const isRtl = i18n.dir() == "rtl";
   function tr(key) {
     return t(`FavouriteScreenScreen:${key}`);
   }
-  const categories = [
-    { id: 1, name: 'General', icon: 'category' },
-    { id: 2, name: 'Sports', icon: 'sports' },
-    { id: 3, name: 'Health/Yoga', icon: 'fitness-center' },
-    { id: 4, name: 'Entertainment', icon: 'movie' },
-  ];
+
+  // const { categories ,setCategories } = useState([
+  //   { id: 1, name: 'General', icon: 'category' },
+  //   { id: 2, name: 'Sports', icon: 'sports' },
+  //   { id: 3, name: 'Health', icon: 'fitness-center' },
+  //   { id: 4, name: 'Entertainment', icon: 'movie' },
+  //   { id: 5, name: 'UpBihar', icon: 'category' },
+  //   { id: 6, name: 'Maharashtra', icon: 'category' }
+  // ]);
+
 
   const toggleCategory = (category) => {
     const isSelected = selectedCategories.map(item => item.id).includes(category.id);
@@ -97,15 +114,14 @@ const FavouriteScreenScreen = (props) => {
       userData.prefNews=prefNews;
       await AsyncStorage.setItem('userDetails', JSON.stringify(userData));
       updateCategory(prefNews)
+      setVisible(false);
       setTimeout(() => {
-        setVisible(false);
-        return props.navigation.navigate("bottomTab");
-      }, 1500);
-
+        return props.navigation.navigate(`${setting?"videoScreen":"bottomTab"}`);
+      }, 1000);
     } catch (e) {
       setVisible(false);
-      console.log('error in laguage saving', e)
-      alert('EZrror in laguage saving');
+      // console.log('error in laguage saving', e)
+      // alert('EZrror in laguage saving');
       return props.navigation.navigate("bottomTab");
     }
   };
@@ -113,14 +129,67 @@ const FavouriteScreenScreen = (props) => {
   useEffect(()=>{
     fetchUserDetails();
   },[])
-  
-  async function fetchUserDetails(){
-    let userData = await AsyncStorage.getItem('userDetails');
-    userData = JSON.parse(userData)
-    let prefNews =userData.prefNews || [];
-    const newPrefNews = categories.filter(item=>prefNews.includes(item.name))
-    setSelectedCategories(newPrefNews);
+
+
+
+  // useEffect(()=>{
+  //   if (prefLanguage === 'Hindi') {
+  //     setcat([...cat, { id: 5, name: 'UpBihar', icon: 'category' }])
+  //   } else if (prefLanguage === 'Marathi') {
+  //     setcat([...cat, { id: 6, name: 'Maharashtra', icon: 'category' }])
+  //   } else {
+  //     setcat(cat)
+  //   }
+  // },[prefLanguage])
+
+  async function fetchUserDetails() {
+    try {
+      
+      let newPrefLanguage ='';
+      // IF USER COMES FROM SETTING PAGE
+      if(setting){
+        let userData = await AsyncStorage.getItem('userDetails');
+        userData = JSON.parse(userData)
+        setProfile(userData);
+        let prefNews = userData.prefNews || [];
+        
+        newPrefLanguage = userData.prefLanguage;
+      }else{
+        newPrefLanguage = prefLanguage;
+      }
+      
+      // SET THE AVAILABLE LANGUAGES
+      if (newPrefLanguage === 'hindi') {
+        setcat([...categoriesList, { id: 5, name: 'UpBihar', icon: 'category' }])
+      } else if (newPrefLanguage === 'marathi') {
+        setcat([...categoriesList, { id: 6, name: 'Maharashtra', icon: 'category' }])
+      } else {
+        setcat(categoriesList)
+      }
+
+      
+
+      // if (prefLanguage === 'Hindi' || prefNews.prefLanguage === 'Hindi') {
+      //   setcat([...cat, { id: 5, name: 'UpBihar', icon: 'category' }])
+      // } else if (prefLanguage === 'Marathi' || prefNews.prefLanguage === 'Marathi') {
+      //   setcat([...cat, { id: 6, name: 'Maharashtra', icon: 'category' }])
+      // } else {
+      //   setcat(cat)
+      // }
+
+    } catch (e) {
+      console.log("error in setting prefLanguage and category :", e);
+    }
+
   }
+
+  useEffect(()=>{
+    if(setting){
+      let newPrefNews =[]
+      newPrefNews = cat.filter(item => (profile.prefNews || []).includes(item.name));
+      setSelectedCategories(newPrefNews);
+    }
+  },[cat])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -160,14 +229,14 @@ const FavouriteScreenScreen = (props) => {
       </Text>
       <Loader visible={visible} />
       <FlatList
-        data={categories}
+        data={cat}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />
-      <TouchableOpacity style={styles.submitButton} onPress={handlePressSubmit}>
+      <View ><TouchableOpacity style={styles.submitButton} onPress={handlePressSubmit}>
         <Text style={styles.submitButtonText}>Submit</Text>
       </TouchableOpacity>
-        {/* <Button title="Submit" onPress={handlePressSubmit} style={styles.submitButton} /> */}
+      </View>
     </SafeAreaView>
   );
 };
@@ -207,7 +276,7 @@ const styles = {
     color: 'white',
   },
   submitButton: {
-    margin: 100,
+    margin: 50,
     alignSelf: 'center',
     backgroundColor: '#2196f3',
     paddingHorizontal: 20,

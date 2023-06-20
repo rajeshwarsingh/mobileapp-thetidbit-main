@@ -16,7 +16,7 @@ export const updateUser = async (data) => {
     const response = await axios.put(url, data);
     return response.data;
   } catch (e) {
-    console.log("Error in api update user:", e)
+    // console.log("Error in api update user:", e)
   }
 };
 
@@ -43,7 +43,7 @@ export const getNewsApi = async ({ prefNews, prefLanguage, newsType }) => {
     let prefLanguageParams = (prefLanguage || profile?.prefLanguage || 'english')
     let newsTypeParams = (newsType || 'swapable')
     let prefNewsParams = (prefNews || profilePrefNews || 'General')
-
+    
     const response = await axios.get(url, {
       params: {
         prefLanguage: prefLanguageParams,
@@ -53,7 +53,7 @@ export const getNewsApi = async ({ prefNews, prefLanguage, newsType }) => {
     });
     return response.data;
   } catch (error) {
-    console.log('Error in getNewsApi', error)
+    // console.log('Error in getNewsApi', error)
   }
 };
 // NEWS API END
@@ -67,7 +67,7 @@ export const getAppLatestVersion = async () => {
     return response.data;
   } catch (error) {
     if (axios.isCancel(error)) {
-      console.log('Data fetching cancelled');
+      // console.log('Data fetching cancelled');
     } else {
       // Handle error
     }

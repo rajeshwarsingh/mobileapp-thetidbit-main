@@ -98,7 +98,7 @@ const LiveTvScreen = (props) => {
         <Video
           ref={video}
           style={styles.video}
-          source={require("../assets/video/SampleVideo.mp4")}
+          // source={require("../assets/video/SampleVideo.mp4")}
           useNativeControls
           resizeMode="contain"
           isLooping

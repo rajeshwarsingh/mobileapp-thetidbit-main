@@ -31,7 +31,6 @@ export async function handleOSPushNotification() {
     if (results.push && results.push.success) {
       console.log('Results of setting external user id push status:');
       console.log(results.push.success);
-      console.log("#################################updateUser", { mobile: userData?.mobile, OSExternalUserId: userData?.mobile })
       updateUser({ mobile: userData?.mobile, OSExternalUserId: userData?.mobile });
     }
 
@@ -60,7 +59,6 @@ export async function handleOSPushNotification() {
   OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
     const { action, notification } = openedEvent;
     const { url = "" } = notification?.additionalData;
-    console.log('url:', url)
     await _handlePressButtonAsync(url);
     // NavigationService.navigate('SCREEN_NAME')
   });

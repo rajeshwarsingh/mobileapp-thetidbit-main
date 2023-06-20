@@ -1,9 +1,9 @@
 {
   "expo": {
     "scheme": "thetidbit",
-    "name": "thetidbit",
+    "name": "TheTidbit",
     "slug": "mobileapp-thetidbit",
-    "version": "3.0.51",
+    "version": "3.0.57",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -45,7 +45,7 @@
           ]
         }
       ],
-      "versionCode": 79,
+      "versionCode": 84,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

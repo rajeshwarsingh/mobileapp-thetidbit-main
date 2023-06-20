@@ -30,7 +30,7 @@ eas login
 eas whoami
 eas build:configure
 
-eas build --platform android
+eas build --platform android ## production build
 
 ## FOLLOW THE BELOW STEPS TO RUN THE PROJECT FOR DEVELOPMENT MODE USING EAS- 2023
 https://www.youtube.com/watch?v=myDDG54OvkE 

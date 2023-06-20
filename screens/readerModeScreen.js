@@ -12,7 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTranslation } from "react-i18next";
 import { Colors, Fonts, Default } from "../constants/style";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Loader from "../components/loader";
+import Loader from "../components/loader-simple";
 
 const ReaderModeScreen = (props) => {
   const backAction = () => {

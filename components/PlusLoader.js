@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated, Easing, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-
-
 const { height, width } = Dimensions.get('window');
 
 class Pulse extends React.Component {
 	constructor(props) {
 		super(props);
-	
+
 		this.anim = new Animated.Value(0);
 	}
 
@@ -16,9 +14,10 @@ class Pulse extends React.Component {
 		Animated.timing(this.anim, {
 			toValue: 1,
 			duration: this.props.interval,
+			useNativeDriver: false, // or useNativeDriver: fals
 			easing: Easing.in,
 		})
-		.start();
+			.start();
 	}
 
 	render() {
@@ -28,8 +27,8 @@ class Pulse extends React.Component {
 			<View style={[styles.circleWrapper, {
 				width: pulseMaxSize,
 				height: pulseMaxSize,
-				marginLeft: -pulseMaxSize/2,
-				marginTop: -pulseMaxSize/2,
+				marginLeft: -pulseMaxSize / 2,
+				marginTop: -pulseMaxSize / 2,
 			}]}>
 				<Animated.View
 					style={[styles.circle, {
@@ -43,7 +42,7 @@ class Pulse extends React.Component {
 							inputRange: [0, 1],
 							outputRange: [size, pulseMaxSize]
 						}),
-						borderRadius: pulseMaxSize/2,
+						borderRadius: pulseMaxSize / 2,
 						opacity: this.anim.interpolate({
 							inputRange: [0, 1],
 							outputRange: [1, 0]
@@ -52,7 +51,7 @@ class Pulse extends React.Component {
 				/>
 			</View>
 		);
-	}	
+	}
 }
 
 
@@ -61,22 +60,18 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		position: 'absolute',
-		left: width/2,
-		top: height/2,
+		left: width / 2,
+		top: height / 2,
 	},
 	circle: {
 		borderWidth: 4 * StyleSheet.hairlineWidth,
 	},
 });
 
-
-// import Pulse from './Pulse';
-
-
 export default class LocationPulseLoader extends React.Component {
 	constructor(props) {
 		super(props);
-	
+
 		this.state = {
 			circles: []
 		};
@@ -105,6 +100,7 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: this.props.pressInValue,
 			duration: this.props.pressDuration,
 			easing: this.props.pressInEasing,
+			useNativeDriver: false, // or useNativeDriver: fals
 		}).start(() => clearInterval(this.setInterval));
 	}
 
@@ -113,6 +109,7 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: 1,
 			duration: this.props.pressDuration,
 			easing: this.props.pressOutEasing,
+			useNativeDriver: false, // or useNativeDriver: fals
 		}).start(this.setCircleInterval.bind(this));
 	}
 
@@ -148,40 +145,40 @@ export default class LocationPulseLoader extends React.Component {
 						style={{
 							width: size,
 							height: size,
-							borderRadius: size/2,
+							borderRadius: size / 2,
 							backgroundColor: avatarBackgroundColor
 						}}
 					/>
 				</TouchableOpacity>
 			</View>
 		);
-	}	
+	}
 }
 
 LocationPulseLoader.propTypes = {
-  interval: PropTypes.number,
-  size: PropTypes.number,
-  pulseMaxSize: PropTypes.number,
-  avatar: PropTypes.string.isRequired,
-  avatarBackgroundColor: PropTypes.string,
-  pressInValue: PropTypes.number,
-  pressDuration: PropTypes.number,
-  borderColor: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  getStyle: PropTypes.func,
+	interval: PropTypes.number,
+	size: PropTypes.number,
+	pulseMaxSize: PropTypes.number,
+	avatar: PropTypes.string.isRequired,
+	avatarBackgroundColor: PropTypes.string,
+	pressInValue: PropTypes.number,
+	pressDuration: PropTypes.number,
+	borderColor: PropTypes.string,
+	backgroundColor: PropTypes.string,
+	getStyle: PropTypes.func,
 };
 
 LocationPulseLoader.defaultProps = {
-  interval: 2000,
-  size: 100,
-  pulseMaxSize: 250,
-  avatar: undefined,
-  avatarBackgroundColor: 'white',
-  pressInValue: 0.8,
-  pressDuration: 150,
-  pressInEasing: Easing.in,
-  pressOutEasing: Easing.in,
-  borderColor: '#2196f3',
-  backgroundColor: '#2196f3',
-  getStyle: undefined,
+	interval: 2000,
+	size: 100,
+	pulseMaxSize: 250,
+	avatar: undefined,
+	avatarBackgroundColor: 'white',
+	pressInValue: 0.8,
+	pressDuration: 150,
+	pressInEasing: Easing.in,
+	pressOutEasing: Easing.in,
+	borderColor: '#2196f3',
+	backgroundColor: '#2196f3',
+	getStyle: undefined,
 };

@@ -13,10 +13,11 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTranslation } from "react-i18next";
 import { Colors, Fonts, Default } from "../constants/style";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Loader from "../components/loader";
+import Loader from "../components/loader-simple";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {updateUser} from '../api/index'
 import {getUserProfile} from '../utils/index'
+
 const MainLanguageScreen = (props) => {
   const [visible, setVisible] = useState(false);
 
@@ -32,6 +33,10 @@ const MainLanguageScreen = (props) => {
       BackHandler.removeEventListener("hardwareBackPress", backAction);
   }, []);
 
+
+
+  
+
   const { t, i18n } = useTranslation();
 
   const [selectedLanguage, setSelectedLanguage] = useState(
@@ -42,6 +47,16 @@ const MainLanguageScreen = (props) => {
 
   function tr(key) {
     return t(`mainLanguageScreen:${key}`);
+  }
+
+  useEffect(()=>{
+    // SET SELECTED LANGUAGE
+    fetchUserDetails();
+  },[])
+
+  async function fetchUserDetails() {
+    let profile = await getUserProfile();
+    setSelectedLanguage(getLangShortName(profile.prefLanguage))
   }
 
   async function onChangeLang(lang) {
@@ -89,6 +104,7 @@ const MainLanguageScreen = (props) => {
       </TouchableOpacity>
     );
   }
+
   const getLangFullName = (name)=>{
     let lang = {
       "en":"english",
@@ -97,13 +113,23 @@ const MainLanguageScreen = (props) => {
     }
     return lang[name]?lang[name]:'english';
   }
+
+  const getLangShortName = (name)=>{
+    let lang = {
+      "english":"en",
+      "hindi":"hi",
+      "marathi":"mr"
+    }
+    return lang[name]?lang[name]:'en';
+  }
+
   const updateAndReset = async () => {
     let profile = await getUserProfile();
     let profMoile = profile.mobile.substr(0,1)!=="+"?`+91${profile.mobile}`:profile.mobile
       let reqBody = { mobile:profMoile, prefLanguage: getLangFullName(selectedLanguage) };
       await updateUser(reqBody);
       let userData = await AsyncStorage.getItem('userDetails');
-      userData = JSON.parse(userData)
+      userData = JSON.parse(userData);
       userData.prefLanguage = getLangFullName(selectedLanguage);
       await AsyncStorage.setItem('userDetails', JSON.stringify(userData));
     
@@ -116,12 +142,12 @@ const MainLanguageScreen = (props) => {
       setTimeout(() => {
         setVisible(false);
         onChangeLang(selectedLanguage);
-        props.navigation.navigate("profileScreen");
-      }, 1500);
+        props.navigation.navigate("videoScreen");
+      }, 500);
     } catch (e) {
       setVisible(false);
       alert('Unable to udate, Please try again later!')
-      console.log('Error in language update :', e);
+      // console.log('Error in language update :', e);
     }
   };
 

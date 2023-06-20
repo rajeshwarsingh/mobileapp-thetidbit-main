@@ -14,7 +14,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Modal from 'react-native-modal';
 import { Colors, Fonts, Default } from "../../constants/style";
-import Loader from "../../components/loader";
+import Loader from "../../components/loader-simple";
 
 const { height } = Dimensions.get("window");
 
@@ -31,34 +31,48 @@ const LanguageScreen = (props) => {
     {
       id: "1",
       text: tr("english"),
+      value: 'english'
     },
     {
       id: "2",
       text: tr("hindi"),
+      value: 'hindi'
     },
     {
       id: "3",
       text: tr("marathi"),
+      value: 'marathi'
     }
   ];
-  const [selectedLanguage, setSelectedLanguage] = useState(tr("english"));
+
+  const [selectedLanguage, setSelectedLanguage] = useState();
   const [visible, setVisible] = useState(false);
 
   const [isAlertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
-  const handleLanguage = async (language) => {
-
-    if (!selectedLanguage) {
-      setAlertMessage('Please enter your prefered language.');
-      setAlertVisible(true);
-      return;
+  const getLangShortName = (name)=>{
+    let lang = {
+      "english":"en",
+      "hindi":"hi",
+      "marathi":"mr"
     }
+    return lang[name]?lang[name]:'en';
+  }
+
+  const handleLanguage = async (lang) => {
+
+    i18n.changeLanguage(getLangShortName(lang.value));
+    // if (!lang) {
+    //   setAlertMessage('Please enter your prefered lang.');
+    //   setAlertVisible(true);
+    //   return;
+    // }
 
     setVisible(true);
     setTimeout(() => {
       setVisible(false);
-      props.navigation.navigate("favouriteScreen", { mobile, prefLanguage: language });
+      props.navigation.navigate("favouriteScreen", { mobile, prefLanguage: lang.value });
     }, 1000);
   };
 
@@ -77,7 +91,7 @@ const LanguageScreen = (props) => {
           marginHorizontal: Default.fixPadding * 1.5,
         }}
         onPress={() => {
-          handleLanguage(item.text);
+          handleLanguage(item);
         }}
       >
         <Text style={{ ...Fonts.SemiBold16Black }}>{item.text}</Text>

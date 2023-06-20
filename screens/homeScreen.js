@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as WebBrowser from 'expo-web-browser';
-import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useTranslation } from "react-i18next";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { Colors, Fonts, Default } from "../constants/style";
 import { getNewsApi } from '../api/index';
 import { BannerAds, InterstitialAds } from '../components/AdMobComponent';
@@ -143,68 +143,6 @@ const HomeScreen = (props) => {
           </TouchableOpacity>
         )}
       </View>
-    );
-  };
-
-  const newsData = [
-    {
-      key: "1",
-      name: tr("news"),
-    },
-    {
-      key: "2",
-      name: tr("sports"),
-    },
-    {
-      key: "3",
-      name: tr("regional"),
-    },
-    {
-      key: "4",
-      name: tr("finance"),
-    },
-    {
-      key: "5",
-      name: tr("education"),
-    },
-    {
-      key: "6",
-      name: tr("health"),
-    },
-    {
-      key: "7",
-      name: tr("other"),
-    },
-  ];
-  const [selectedNewsData, setSelectedNewsData] = useState(tr("news"));
-
-  const renderItemNewsData = ({ item, index }) => {
-    const isFirst = index === 0;
-    return (
-      <TouchableOpacity
-        onPress={() => setSelectedNewsData(item.name)}
-        style={{
-          ...Default.shadow,
-          marginLeft: isFirst ? Default.fixPadding * 1.5 : 0,
-          marginRight: Default.fixPadding * 1.5,
-          marginBottom: Default.fixPadding * 2,
-          backgroundColor:
-            selectedNewsData === item.name ? Colors.primary : Colors.white,
-          borderRadius: 10,
-        }}
-      >
-        <Text
-          style={{
-            ...(selectedNewsData === item.name
-              ? Fonts.SemiBold16White
-              : Fonts.SemiBold16Grey),
-            padding: Default.fixPadding,
-            textAlign: "center",
-          }}
-        >
-          {item.name}
-        </Text>
-      </TouchableOpacity>
     );
   };
 
@@ -894,7 +832,11 @@ const HomeScreen = (props) => {
             onPress={() => props.navigation.navigate("videoScreen")}
             style={{ marginHorizontal: Default.fixPadding }}
           >
-            <MaterialIcons name="live-tv" size={24} color={Colors.primary} />
+            <Ionicons
+              name={"newspaper-outline"}
+              color={Colors.primary}
+              size={22}
+            />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -1015,7 +957,7 @@ const HomeScreen = (props) => {
             marginBottom: Default.fixPadding,
           }}
         >
-          <Text style={{ ...Fonts.Bold18Black }}>Sports</Text>
+          <Text style={{ ...Fonts.Bold18Black }}>{tr("sports")}</Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate("worldNewsScreen")}
           >
@@ -1041,7 +983,7 @@ const HomeScreen = (props) => {
           }}
         >
 
-          <Text style={{ ...Fonts.Bold18Black }}>{tr("localNews")}</Text>
+          <Text style={{ ...Fonts.Bold18Black }}>{tr("health")}</Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate("localNewsScreen")}
           >
@@ -1066,7 +1008,7 @@ const HomeScreen = (props) => {
             marginBottom: Default.fixPadding,
           }}
         >
-          <Text style={{ ...Fonts.Bold18Black }}>{tr("nationalNews")}</Text>
+          <Text style={{ ...Fonts.Bold18Black }}>{tr("entertainment")}</Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate("nationalNewsScreen")}
           >
@@ -1091,7 +1033,7 @@ const HomeScreen = (props) => {
             marginBottom: Default.fixPadding,
           }}
         >
-          <Text style={{ ...Fonts.Bold18Black }}>Technology</Text>
+          <Text style={{ ...Fonts.Bold18Black }}>{tr("technology")}</Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate("politicNewsScreen")}
           >

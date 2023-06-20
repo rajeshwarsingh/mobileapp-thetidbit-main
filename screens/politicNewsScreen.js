@@ -242,7 +242,7 @@ const PoliticNewsScreen = (props) => {
             color={Colors.black}
           />
         </TouchableOpacity>
-        <Text style={Fonts.Bold18Black}>Technology</Text>
+        <Text style={Fonts.Bold18Black}>{tr("technology")}</Text>
       </View>
 
       <FlatList

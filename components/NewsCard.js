@@ -16,10 +16,12 @@ import { GRAY, WHITE, DARK_GRAY, LIGHT_BLUE } from '../constants/Colors';
 import { momentCalendarConfig, FONT_REGULAR } from '../constants/Constants';
 import { BannerAds } from '../components/AdMobComponent';
 import { getShortUrl } from '../api/index';
+import Loader from "../components/loader-simple";
 
 export default function NewsCard(props) {
 
   const [imageError, setImageError] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   getByLineText = () => {
     const { byline_1, created_at } = props.data;
@@ -53,6 +55,7 @@ export default function NewsCard(props) {
   } = props.data;
 
   const handleShare = async() => {
+    setVisible(true);
     const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}`);
     let imagePath = null;
     RNFetchBlob.config({
@@ -75,9 +78,10 @@ export default function NewsCard(props) {
           url: imageUrl,
           // urls: [imageUrl, imageUrl], // eg.'http://img.gemejo.com/product/8c/099/cf53b3a6008136ef0882197d5f5.jpg',
         };
+        setVisible(false);
         Share.open(shareImage)
           .then((res) => {
-            console.log(res);
+            // console.log(res);
           })
           .catch((err) => {
             err && console.log(err);
@@ -143,6 +147,7 @@ export default function NewsCard(props) {
       <View style={[styles.middle, styles.contentPadding]}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{text.replace(/\[.*\]$/, '')}</Text>
+        <Loader visible={visible} />
         <ShareAndReadme />
         <Text style={styles.byLine} numberOfLines={1} ellipsizeMode="tail"> {getByLineText()}</Text>
       </View>

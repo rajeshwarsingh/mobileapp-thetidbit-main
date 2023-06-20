@@ -18,6 +18,7 @@ import { useTranslation } from "react-i18next";
 import { Colors, Fonts, Default } from "../constants/style";
 import Stars from "react-native-stars";
 import * as Linking from "expo-linking";
+import * as WebBrowser from 'expo-web-browser';
 import { getUserProfile } from '../utils/index';
 
 const { width } = Dimensions.get("window");
@@ -45,6 +46,10 @@ const ProfileScreen = (props) => {
     setUserProfile(profileData);
   }
     // ----GET USER PROFILE INFORMATION END----
+
+    const _handlePressButtonAsync = async () => {
+      await WebBrowser.openBrowserAsync('https://www.thetidbit.in/term');
+    };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
@@ -252,7 +257,7 @@ const ProfileScreen = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("termsConditionScreen")}
+          onPress={() =>_handlePressButtonAsync()}
           style={{
             flexDirection: isRtl ? "row-reverse" : "row",
             borderBottomColor: Colors.lightGrey,

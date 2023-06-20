@@ -139,8 +139,7 @@ const SettingScreen = (props) => {
               marginHorizontal: Default.fixPadding * 1.5,
             }}
           >
-            Preferred news
-            {/* {tr("selectFavourite")} */}
+            {tr("preferred-news")}
           </Text>
 
           <Ionicons

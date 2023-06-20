@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Toast from "react-native-root-toast";
 import { Colors, Fonts, Default } from "../../constants/style";
-import Loader from "../../components/loader";
+import Loader from "../../components/loader-simple";
 
 // ------------Firebase OTP Verification---------
 import React, { useState, useEffect } from 'react';
@@ -83,7 +83,7 @@ const VerificationScreen = (props) => {
         return props.navigation.navigate("languageScreen",{mobile});
       }, 1500);
     } catch (error) {
-      console.log('Invalid code.');
+      // console.log('Invalid code.');
       setVisible(false);
       Toast.show('Invalid OTP, Please enter again.', {
         duration: Toast.durations.SHORT,

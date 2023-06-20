@@ -243,7 +243,7 @@ const LocalNewsScreen = (props) => {
             color={Colors.black}
           />
         </TouchableOpacity>
-        <Text style={Fonts.Bold18Black}>Health</Text>
+        <Text style={Fonts.Bold18Black}>{tr("health")}</Text>
       </View>
 
       <FlatList

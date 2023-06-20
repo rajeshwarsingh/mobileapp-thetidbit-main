@@ -26,7 +26,7 @@ const SplashScreen = (props) => {
       }
 
     } catch (e) {
-      console.log("Error in splashScreen:", e)
+      // console.log("Error in splashScreen:", e)
     }
 
     return props.navigation.push(navigateValue);
@@ -35,7 +35,7 @@ const SplashScreen = (props) => {
   setTimeout(() => {
     checkNavigation();
     // return props.navigation.push('verificationScreen');
-  }, 2000);
+  }, 100);
 
   return (
     <SafeAreaView

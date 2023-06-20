@@ -299,7 +299,7 @@ const NationalNewsScreen = (props) => {
             color={Colors.black}
           />
         </TouchableOpacity>
-        <Text style={Fonts.Bold18Black}>{tr("nationalNews")}</Text>
+        <Text style={Fonts.Bold18Black}>{tr("entertainment")}</Text>
       </View>
 
       <FlatList

@@ -10,8 +10,7 @@ const _handlePressButtonAsync = async (url) => {
   await WebBrowser.openBrowserAsync(url);
 };
 
-
-export function handleDeeplinkUrl() {
+export async function handleDeeplinkUrl() {
 
   const handleDeepLink = (e) => {
     let data = Linking.parse(e.url)
@@ -21,6 +20,12 @@ export function handleDeeplinkUrl() {
 
   }
 
+  const url = await Linking.getInitialURL();
+  const route = Linking.parse(url);
+  if(route?.queryParams?.newsInx){
+    _handlePressButtonAsync(route?.queryParams?.newsInx)
+  }
+ 
   Linking.addEventListener('url', handleDeepLink)
 }
 
