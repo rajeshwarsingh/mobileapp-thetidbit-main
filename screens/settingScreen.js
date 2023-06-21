@@ -153,7 +153,7 @@ const SettingScreen = (props) => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => props.navigation.navigate("readerModeScreen")}
           style={{
             flexDirection: isRtl ? "row-reverse" : "row",
@@ -180,7 +180,7 @@ const SettingScreen = (props) => {
               marginHorizontal: isRtl ? Default.fixPadding : 0,
             }}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </ScrollView>
     </SafeAreaView>
   );

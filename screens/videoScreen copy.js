@@ -206,10 +206,10 @@ const VideoScreen = (props) => {
           inactiveSlideScale={1}
           vertical={true}
           lockScrollWhileSnapping={true}
+          swipeThreshold={70}
+          nestedScrollEnabled
           windowSize={5}
           enableMomentum={true} //VERY IMPORTANT FOR SWAPING EFFECT
-          decelerationRate={0}
-          activeSlideOffset={0}
         />
       </View>
       <ManualUpdate />

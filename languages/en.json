@@ -19,10 +19,11 @@
     },
     "registerScreen": {
         "register": "Register",
-        "pleaseCreate": "Please create your account to continue using this application",
-        "name": "Enter your name",
-        "email": "Enter your email id",
-        "mobile": "Enter your mobile number",
+        "pleaseCreate": "Stay in touch with the world🌍 and discover engaging news articles on theTidbit! 📰✨",
+        "warn": "Rest assured, your information is kept private within the app!",
+        "name": "Nick name",
+        "email": "Email Address (Optional)",
+        "mobile": "Mobile Number (Optional)",
         "or": "Or register using"
     },
     "verificationScreen": {
@@ -246,6 +247,7 @@
         "termsCondition": "Terms and condition",
         "rate": "Rate",
         "logout": "Logout",
+        "exit": "Exit App",
         "areYouLogout": "Are you sure you want to logout?",
         "cancel": "Cancel",
         "rateUs": "Rate us",

@@ -12,6 +12,7 @@ import {
   Button,
 } from "react-native";
 import React, { useState } from "react";
+import 'react-native-get-random-values';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Modal from 'react-native-modal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -21,6 +22,9 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Loader from "../../components/loader-simple";
 import { saveUser } from '../../api/index';
 const { height } = Dimensions.get("window");
+
+import { v4 as uuidv4 } from 'uuid';
+
 
 const RegisterScreen = (props) => {
   const { t, i18n } = useTranslation();
@@ -39,18 +43,18 @@ const RegisterScreen = (props) => {
 
   const [visible, setVisible] = useState(false);
 
-  const handleRegister = async() => {
+  const handleRegister = async () => {
     if (!name) {
       setAlertMessage('Please enter your name.');
       setAlertVisible(true);
       return;
     }
 
-    if (!mobile) {
-      setAlertMessage('Please enter your mobile number.');
-      setAlertVisible(true);
-      return;
-    }
+    // if (!mobile) {
+    //   setAlertMessage('Please enter your mobile number.');
+    //   setAlertVisible(true);
+    //   return;
+    // }
 
     // if (!email) {
     //   setAlertMessage('Please enter your email address.');
@@ -64,7 +68,7 @@ const RegisterScreen = (props) => {
       return;
     }
 
-    if (!/^\d{10}$/.test(mobile)) {
+    if (mobile && !/^\d{10}$/.test(mobile)) {
       setAlertMessage('Invalid mobile number. It should be a 10-digit number.');
       setAlertVisible(true);
       return;
@@ -76,19 +80,21 @@ const RegisterScreen = (props) => {
       return;
     }
     setVisible(true);
+
+    const userMobileOrUniqueId = mobile?`+91${mobile}`:uuidv4();
     try {
-      let user = await saveUser({ name, mobile:`+91${mobile}`, email });
+      let user = await saveUser({ name, mobile: userMobileOrUniqueId, email });
       // CHECK USER ALREADY EXIST
-      if(user.message === "User already exists"){
+      if (user.message === "User already exists") {
         await AsyncStorage.setItem('userDetails', JSON.stringify(user.data));
-      }else{
-        await AsyncStorage.setItem('userDetails', JSON.stringify({ name,  mobile: `+91${mobile}`, email }));
+      } else {
+        await AsyncStorage.setItem('userDetails', JSON.stringify({ name, mobile: userMobileOrUniqueId, email }));
       }
-      
+
       setTimeout(() => {
         setVisible(false);
-        return props.navigation.navigate("languageScreen", { mobile: `+91${mobile}` });
-      }, 1500);
+        return props.navigation.navigate("languageScreen", { mobile: userMobileOrUniqueId });
+      }, 1000);
 
     } catch (e) {
       // LOG THE ERROR HERE
@@ -130,17 +136,37 @@ const RegisterScreen = (props) => {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ margin: Default.fixPadding * 1.5 }}>
-          <Text style={{ ...Fonts.Bold25Primary }}>{tr("register")}</Text>
+        {/* <Text style={{ ...Fonts.Bold25Primary }}>{tr("register")}</Text> */}
           <Text
             style={{
               ...Fonts.Medium14ExtraLightGrey,
               marginVertical: Default.fixPadding,
               textAlign: isRtl ? "right" : "left",
-              maxWidth: isRtl ? null : "70%",
+              maxWidth: isRtl ? null : "100%",
+              color: Colors.primary, // Pink color
+              fontSize: 18, // Increased font size
+              fontWeight: "bold", // Bold text
+              letterSpacing: 1, // Increased letter spacing
+              textShadowColor: "rgba(0, 0, 0, 0.3)", // Shadow color
+              textShadowOffset: { width: 1, height: 1 }, // Shadow offset
+              textShadowRadius: 2, // Shadow radius
             }}
           >
             {tr("pleaseCreate")}
           </Text>
+
+          
+          <Text
+            style={{
+              ...Fonts.Medium14ExtraLightGrey,
+              marginVertical: Default.fixPadding,
+              textAlign: isRtl ? "right" : "left",
+              maxWidth: isRtl ? null : "100%",
+            }}
+          >
+            {tr("warn")}
+          </Text>
+
 
           <View
             style={{
@@ -188,41 +214,6 @@ const RegisterScreen = (props) => {
             }}
           >
             <TextInput
-              placeholder={tr("email")}
-              placeholderTextColor={Colors.grey}
-              onChangeText={onChangeEmail}
-              selectionColor={Colors.primary}
-              keyboardType="email-address"
-              value={email}
-              style={{
-                ...Fonts.SemiBold16Black,
-                flex: 9.3,
-                textAlign: isRtl ? "right" : "left",
-                marginHorizontal: Default.fixPadding * 0.5,
-              }}
-            />
-            <Ionicons
-              name="mail-outline"
-              color={Colors.grey}
-              size={20}
-              style={{
-                flex: 0.7,
-              }}
-            />
-          </View>
-
-          <View
-            style={{
-              ...Default.shadow,
-              borderRadius: 10,
-              backgroundColor: Colors.white,
-              padding: Default.fixPadding * 1.5,
-              marginTop: Default.fixPadding * 2,
-              flexDirection: isRtl ? "row-reverse" : "row",
-              alignItems: "center",
-            }}
-          >
-            <TextInput
               placeholder={tr("mobile")}
               placeholderTextColor={Colors.grey}
               onChangeText={onChangeMobile}
@@ -246,8 +237,42 @@ const RegisterScreen = (props) => {
               }}
             />
           </View>
-          <Loader visible={visible} />
 
+          {/* <View
+            style={{
+              ...Default.shadow,
+              borderRadius: 10,
+              backgroundColor: Colors.white,
+              padding: Default.fixPadding * 1.5,
+              marginTop: Default.fixPadding * 2,
+              flexDirection: isRtl ? "row-reverse" : "row",
+              alignItems: "center",
+            }}
+          >
+            <TextInput
+              placeholder={tr("email")}
+              placeholderTextColor={Colors.grey}
+              onChangeText={onChangeEmail}
+              selectionColor={Colors.primary}
+              keyboardType="email-address"
+              value={email}
+              style={{
+                ...Fonts.SemiBold16Black,
+                flex: 9.3,
+                textAlign: isRtl ? "right" : "left",
+                marginHorizontal: Default.fixPadding * 0.5,
+              }}
+            />
+            <Ionicons
+              name="mail-outline"
+              color={Colors.grey}
+              size={20}
+              style={{
+                flex: 0.7,
+              }}
+            />
+          </View> */}
+          <Loader visible={visible} />
           <TouchableOpacity
             onPress={handleRegister}
             style={{
@@ -264,18 +289,18 @@ const RegisterScreen = (props) => {
           </TouchableOpacity>
         </View>
         <Modal isVisible={isAlertVisible} onBackdropPress={handleAlertClose}>
-        <View style={{ backgroundColor: 'white', padding: 16 }}>
-          <Text>{alertMessage}</Text>
-          <Button
-            title="OK"
-            // width='20px'
-            width='400'
-            onPress={handleAlertClose}
-            color="red" // Set the color of the button
-            style={{height:100, marginTop: 8, width: 20}} // Adjust the margin
-          />
-        </View>
-      </Modal>
+          <View style={{ backgroundColor: 'white', padding: 16 }}>
+            <Text>{alertMessage}</Text>
+            <Button
+              title="OK"
+              // width='20px'
+              width='400'
+              onPress={handleAlertClose}
+              color="red" // Set the color of the button
+              style={{ height: 100, marginTop: 8, width: 20 }} // Adjust the margin
+            />
+          </View>
+        </Modal>
       </ScrollView>
     </SafeAreaView>
   );

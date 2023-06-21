@@ -221,12 +221,12 @@ export default function EditProfileScreen(props) {
       setHasPermission(status === "granted");
     })();
   }, []);
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+  // if (hasPermission === null) {
+  //   return <View />;
+  // }
+  // if (hasPermission === false) {
+  //   return <Text>No access to camera</Text>;
+  // }
 
   const handleUpdate = async() => {
     if (!name) {
@@ -343,14 +343,14 @@ export default function EditProfileScreen(props) {
                 {tr("camera")}
               </Text>
             </TouchableOpacity>
-            {camera && (
+            {/* {camera && (
               <CameraModule
                 showModal={camera}
                 setModalVisible={() => setShowCamera(false)}
                 setPickedImage={(result) => setPickedImage(result.uri)}
                 toggleClose={() => toggleClose()}
               />
-            )}
+            )} */}
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={pickImage}

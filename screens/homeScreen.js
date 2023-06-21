@@ -847,7 +847,7 @@ const HomeScreen = (props) => {
               size={24}
               color={Colors.primary}
             />
-            <View
+            {/* <View
               style={{
                 height: 6,
                 width: 6,
@@ -859,7 +859,7 @@ const HomeScreen = (props) => {
                 left: "55%",
                 position: "absolute",
               }}
-            />
+            /> */}
           </TouchableOpacity>
         </View>
       </View>

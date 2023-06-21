@@ -54,14 +54,14 @@ export default function NewsCard(props) {
     sourceLink,
   } = props.data;
 
-  const handleShare = async() => {
+  const handleShare = async () => {
     setVisible(true);
     const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}`);
     let imagePath = null;
     RNFetchBlob.config({
       fileCache: true,
     })
-      .fetch('GET', image_url)
+      .fetch('GET', (image_url || "https://res.cloudinary.com/dkydl3enp/image/upload/v1686501064/Picsart_23-06-11_21-57-08-972_yvzlrb.jpg"))
       // the image is now dowloaded to device's storage
       .then((resp) => {
         // the image path you can use it directly with Image component

@@ -8,6 +8,7 @@ import {
   StatusBar,
   Modal,
   Dimensions,
+  BackHandler,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -49,6 +50,11 @@ const ProfileScreen = (props) => {
 
     const _handlePressButtonAsync = async () => {
       await WebBrowser.openBrowserAsync('https://www.thetidbit.in/term');
+    };
+const handleBackPress = () => {
+      // Exit the app
+      BackHandler.exitApp();
+      return true; // Prevent default behavior
     };
 
   return (
@@ -414,7 +420,7 @@ const ProfileScreen = (props) => {
         </Modal>
 
         <TouchableOpacity
-          onPress={() => setVisible(true)}
+          onPress={handleBackPress}
           style={{
             flexDirection: isRtl ? "row-reverse" : "row",
             paddingVertical: Default.fixPadding * 2.5,
@@ -434,7 +440,7 @@ const ProfileScreen = (props) => {
                 marginHorizontal: Default.fixPadding,
               }}
             >
-              {tr("logout")}
+              {tr("exit")}
             </Text>
           </View>
         </TouchableOpacity>
