@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+let chacheSwap = "chache-swap";
+
 export const getUserProfile = async () => {
   try {
     let userData = await AsyncStorage.getItem('userDetails');
@@ -8,10 +10,10 @@ export const getUserProfile = async () => {
   } catch (e) {
     return {};
   }
-} 
+}
 
 export function compareAppVersions(versionCur, versionPlaystore) {
-  if(!versionCur || !versionPlaystore) return;
+  if (!versionCur || !versionPlaystore) return;
   const components1 = versionCur.split('.').map(Number);
   const components2 = versionPlaystore.split('.').map(Number);
 
@@ -28,3 +30,29 @@ export function compareAppVersions(versionCur, versionPlaystore) {
 
   return 0; // versions are equal
 }
+
+export const getSwapNewsCacheData = async () => {
+  try {
+    let userData = await AsyncStorage.getItem(chacheSwap);
+    userData = JSON.parse(userData)
+    return userData
+  } catch (e) {
+    return {};
+  }
+}
+
+export const updateSwapNewsCacheData = async (data = {}) => {
+
+  if(typeof data === 'object') data = JSON.stringify(data);
+  try {
+    await AsyncStorage.setItem(chacheSwap, data);
+    return "success"
+  } catch (e) {
+    return {};
+  }
+} 
+
+
+export const logOutput = ({msg, functionName})=>{
+  // console.log(`${functionName} : ${msg}`)
+} 

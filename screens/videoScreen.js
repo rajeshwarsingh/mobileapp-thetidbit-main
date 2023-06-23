@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import {
   Text,
   View,
@@ -19,11 +19,14 @@ import { getNewsApi } from '../api/index';
 import { getScreenWidth, getScreenHeight } from '../helpers/DimensionsHelper';
 import NewsCard from '../components/NewsCard';
 import ManualUpdate from '../components/ManualUpdate';
-const SCREEN_WIDTH = getScreenWidth();
 import NavigationContext from '../components/NavigationContext';
 import Loader from "../components/loader";
+import {getSwapNewsCacheData, updateSwapNewsCacheData, logOutput} from "../utils/index"
+const SCREEN_WIDTH = getScreenWidth();
 
-const VideoScreen = (props) => {
+const VideoScreen = ({ route }) => {
+  let {notiOrShareCliecked=false, title='', url='' } = route.params || {};
+  // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@VideoScreen",route.params)
   const { category } = useContext(NavigationContext);
   const [breakingNews, setBreakingNews] = useState([])
   const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
@@ -40,6 +43,11 @@ const VideoScreen = (props) => {
   useEffect(() => {
     checkUpdate()
   }, [])
+
+  //HANDLE IF USER CLICK NOTIFICATION OR SHARE-LINK
+  useEffect(()=>{
+    _ClickedNotiOrSHare();
+  },[notiOrShareCliecked]);
 
   async function checkUpdate() {
     try {
@@ -64,10 +72,15 @@ const VideoScreen = (props) => {
     }
   }
 
-  useEffect(() => {
-    setVisible(true)
-    getNewsApi({newsType:'swapable'}).then((response) => {
-      let formatedBreakingNews = response?.data.map((news) => {
+  const _handlePressButtonAsync = async (url) => {
+    await WebBrowser.openBrowserAsync(url);
+  };
+
+  const _getNewsAndupdateCache = async()=>{
+    // logOutput({functionName : 'getNewsAndupdateCache', msg:`Entered`});
+     // CALL NEWS API
+      const newsData = await getNewsApi({ newsType: 'swapable' });
+      let formatedBreakingNews = newsData?.data.map((news) => {
         setVisible(false);
         return {
           source_name: news.author,
@@ -79,97 +92,98 @@ const VideoScreen = (props) => {
           bottom_text: "",
           sourceLink: news.sourceLink,
         }
-      })
+      });
+      // logOutput({functionName : 'handleDisplayNews', msg:`formatedBreakingNews data: ${formatedBreakingNews}`});
+      
+      // ADD THE CONDITION WHEN TO UPDATE
+    if (true) {
+      // UPDATE NEWS
       setBreakingNews(formatedBreakingNews);
 
-    }).catch((reason)=>console.log("Error in videoscreen api:",reason));
+      // UPDATE THE CACHE
+      updateSwapNewsCacheData(formatedBreakingNews);
+    }
+    // handleNotification or clicked conditions
+    _ClickedNotiOrSHare();
+  }
+
+  const _ClickedNotiOrSHare = ()=>{
+
+    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@1",(notiOrShareCliecked && title,notiOrShareCliecked) , title)
+    // if(notiOrShareCliecked && title){
+    //   const matchedIndex = breakingNews.findIndex((item) => item.title === title);
+    //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2",matchedIndex);
+    //   if(matchedIndex!==-1){
+    //     setTimeout(()=>{navigateToItem(matchedIndex)},0);
+    //   }else{
+    //     // open the browser
+    //     _handlePressButtonAsync(url)
+    //   }
+      
+    // }
+    navigateToItem(11);
+    
+  }
+
+  const handleDisplayNews = async()=>{
+    // CHECK CACHED NEWSDATA
+    let cacheData = await getSwapNewsCacheData();
+    // logOutput({functionName : 'handleDisplayNews', msg:`cache data: ${cacheData}`});
+
+    // IF CACHE NOT AVAILABLE - CALL METHOD GET NEWS AND UPDATE CACHE
+      if(!cacheData)  {
+        setVisible(false);
+        return _getNewsAndupdateCache();
+      }
+      
+
+    // IF CACHE AVAILABLE
+      // SET CACHED NEWS
+      setVisible(false)
+      setBreakingNews(cacheData);
+      
+      // CALL METHOD GET NEWS AND UPDATE CACHE
+      _getNewsAndupdateCache();
+    }
+
+  useEffect(() => {
+    try{
+      setVisible(true)
+      handleDisplayNews();
+    }catch(e){
+      // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
+    }
+    
+    // setVisible(true)
+    // getNewsApi({ newsType: 'swapable' }).then((response) => {
+    //   let formatedBreakingNews = response?.data.map((news) => {
+    //     setVisible(false);
+    //     return {
+    //       source_name: news.author,
+    //       title: news.title,
+    //       image_url: news.logo,
+    //       content: news.content,
+    //       description: news.description,
+    //       bottom_headline: news.description,
+    //       bottom_text: "",
+    //       sourceLink: news.sourceLink,
+    //     }
+    //   });
+    //   setBreakingNews(formatedBreakingNews);
+
+    // }).catch((reason) => console.log("Error in videoscreen api:", reason));
   }, [i18n.language, category]);
-
-  const _handlePressButtonAsync = async (e, item) => {
-    await WebBrowser.openBrowserAsync(item.sourceLink);
-  };
-
-  const renderItemBreakingNews = ({ item, index }) => {
-    const isFirst = index === 0;
-    // alert(item)
-    return (
-      <TouchableOpacity
-        onPress={(e) => _handlePressButtonAsync(e, item)}
-        style={{
-          ...Default.shadow,
-          backgroundColor: Colors.white,
-          borderRadius: 10,
-          marginHorizontal: Default.fixPadding * 1.5,
-          marginTop: isFirst ? Default.fixPadding * 1.5 : 0,
-          marginBottom: Default.fixPadding * 1.5,
-          borderColor: Colors.primary,
-          flexDirection: isRtl ? "row-reverse" : "row",
-          overflow: "hidden",
-        }}
-      >
-        <Image source={{ uri: item.image ? item.image : 'https://res.cloudinary.com/dkydl3enp/image/upload/v1686501064/Picsart_23-06-11_21-57-08-972_yvzlrb.jpg' }} style={{ width: 131, height: 148 }} />
-        <View
-          style={{
-            height: 30,
-            width: 30,
-            borderRadius: 15,
-            backgroundColor: Colors.white,
-            justifyContent: "center",
-            alignItems: "center",
-            position: "absolute",
-            alignSelf: "center",
-            marginHorizontal: Default.fixPadding * 5,
-          }}
-        >
-          <Ionicons name="caret-forward" size={20} color={Colors.black} />
-        </View>
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: isRtl ? "flex-end" : "flex-start",
-            marginHorizontal: Default.fixPadding,
-          }}
-        >
-          <Text
-            style={{
-              ...Fonts.Medium16Black,
-              maxWidth: "80%",
-              textAlign: isRtl ? "right" : "left",
-            }}
-          >
-            {item.description}
-          </Text>
-          <Text
-            style={{
-              ...Fonts.Medium14Grey,
-              marginVertical: Default.fixPadding * 0.5,
-            }}
-          >
-            {item.time}
-          </Text>
-          <View style={{ flexDirection: isRtl ? "row-reverse" : "row" }}>
-            <Ionicons
-              name="bookmark-outline"
-              size={18}
-              color={Colors.primary}
-            />
-            <Ionicons
-              name="share-social-outline"
-              size={18}
-              color={Colors.primary}
-              style={{ marginHorizontal: Default.fixPadding }}
-            />
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
 
   const renderItem = ({ item, index }) => {
     return (
       <NewsCard key={String(index)} data={item} />
     );
+  };
+
+  const carouselRef = useRef(null);
+
+  const navigateToItem = (index) => {
+    carouselRef.current.snapToItem(index);
   };
 
   return (
@@ -196,6 +210,7 @@ const VideoScreen = (props) => {
       <Loader visible={visible} />
       <View style={styles.container}>
         <Carousel
+          ref={carouselRef}
           data={breakingNews}
           renderItem={renderItem}
           sliderWidth={SCREEN_WIDTH}

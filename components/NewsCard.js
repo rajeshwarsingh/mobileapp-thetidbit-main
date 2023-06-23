@@ -56,7 +56,7 @@ export default function NewsCard(props) {
 
   const handleShare = async () => {
     setVisible(true);
-    const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}`);
+    const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}&newsInxShow=${encodeURIComponent(title)}`);
     let imagePath = null;
     RNFetchBlob.config({
       fileCache: true,
@@ -119,6 +119,7 @@ export default function NewsCard(props) {
     setImageError(true);
   };
 
+  let descriptionText = text.replace(/\[.*\]$/, '');
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -146,7 +147,7 @@ export default function NewsCard(props) {
 
       <View style={[styles.middle, styles.contentPadding]}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{text.replace(/\[.*\]$/, '')}</Text>
+        <Text style={styles.description}>{(descriptionText || '').replace(/\s{2,}/g, ' ')}</Text>
         <Loader visible={visible} />
         <ShareAndReadme />
         <Text style={styles.byLine} numberOfLines={1} ellipsizeMode="tail"> {getByLineText()}</Text>

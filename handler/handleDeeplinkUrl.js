@@ -6,24 +6,37 @@ import * as Linking from 'expo-linking';
 //DO NOT REMOVE FROM HERE, NEED TO NOUTE ON PERTICULAR SCREEN
 import NavigationService from "../services/NavigationService"
 
-const _handlePressButtonAsync = async (url) => {
-  await WebBrowser.openBrowserAsync(url);
+const _handlePressButtonAsync = async (url,title) => {
+  // title = title.replace(/:$/, '');
+  console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",title.substr(title.length-2,1))
+  setTimeout(()=>{
+
+    if(title.substr(title.length-1,1)){
+      title = title.substr(0,title.length-1);
+    };
+
+    return NavigationService.navigate('videoScreen',{notiOrShareCliecked:true,title, url})
+  },1000)
+  // await WebBrowser.openBrowserAsync(url);
 };
 
 export async function handleDeeplinkUrl() {
 
   const handleDeepLink = (e) => {
     let data = Linking.parse(e.url)
-
-    let newsUrl = data?.queryParams?.newsInx || "";
-    _handlePressButtonAsync(newsUrl);
+    console.log("######################################route1 :",data);
+    let url = data?.queryParams?.newsInx || "";
+    let title = data?.queryParams?.newsInxShow || "";
+    _handlePressButtonAsync(url,title);
+    
 
   }
 
   const url = await Linking.getInitialURL();
   const route = Linking.parse(url);
-  if(route?.queryParams?.newsInx){
-    _handlePressButtonAsync(route?.queryParams?.newsInx)
+  console.log("######################################route :",route);
+  if(route?.queryParams?.newsInx && route?.queryParams?.newsInxShow){
+    _handlePressButtonAsync(route?.queryParams?.newsInx, route?.queryParams?.newsInxShow)
   }
  
   Linking.addEventListener('url', handleDeepLink)

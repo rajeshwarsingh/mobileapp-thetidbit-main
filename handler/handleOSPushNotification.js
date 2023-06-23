@@ -58,9 +58,11 @@ export async function handleOSPushNotification() {
   // HANDLING WHEN NOTIFICAITON OPENED
   OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
     const { action, notification } = openedEvent;
-    const { url = "" } = notification?.additionalData;
-    await _handlePressButtonAsync(url);
-    // NavigationService.navigate('SCREEN_NAME')
+    const { url = "", title } = notification?.additionalData;
+    setTimeout(()=>{
+      NavigationService.navigate('videoScreen',{notiOrShareCliecked:true,title, url})
+    },1000)
+    
   });
 }
 
