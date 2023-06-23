@@ -25,7 +25,7 @@ export async function handleOSPushNotification() {
   OneSignal.setLogLevel(6, 0);
 
   // SET USERID TO SEND NOTIFICATION TO SPECIFICE USER
-  OneSignal.setExternalUserId(userData?.mobile, (results) => {
+  OneSignal.setExternalUserId("+918983712448", (results) => {
     // Push can be expected in almost every situation with a success status, but
     // as a pre-caution its good to verify it exists
     if (results.push && results.push.success) {
