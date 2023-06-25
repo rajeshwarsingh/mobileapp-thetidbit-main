@@ -30,7 +30,7 @@ const VideoScreen = () => {
   const [breakingNews, setBreakingNews] = useState([])
   const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [curItemIndex, setCurItemIndex] = useState(0);
+  const [curItemIndex, setCurItemIndex] = useState(5);
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() == "rtl";
   function tr(key) {
@@ -95,17 +95,18 @@ const VideoScreen = () => {
   const _handleOSNotification = async () => {
     // HANDLING PUSH NOTIFICATION ON FORGROUND, WHEN APP IS ALREADY OPEN
     OneSignal.setNotificationWillShowInForegroundHandler(notificationReceivedEvent => {
-      console.log("Handle forground os notification :", notificationReceivedEvent)
+      console.log("###################setNotificationWillShowInForegroundHandler : _handleOSNotification3", notificationReceivedEvent)
     });
 
     // HANDLING WHEN NOTIFICAITON OPENED
     OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
-      const { notification } = openedEvent;
-      const { url = "" } = notification?.additionalData;
+      const { action, notification } = openedEvent;
+      const { url = "", title } = notification?.additionalData;
       if (url) {
-        _ClickedNotiOrSHare(url)
+        _ClickedNotiOrSHare(title, url)
       }
     });
+
   }
 
   useEffect(() => {
@@ -143,11 +144,13 @@ const VideoScreen = () => {
     }
   }
 
-  const _ClickedNotiOrSHare = (url) => {
+  const _ClickedNotiOrSHare = (title, url) => {
+    
     if (url) {
       const matchedIndex = breakingNews.findIndex((item) => item.sourceLink == url);
       if (matchedIndex !== -1) {
-        console.log("_ClickedNotiOrSHare Matched Index :",matchedIndex)
+        // navigateToItem(matchedIndex);
+        console.log("**********************************************************************",matchedIndex)
         setCurItemIndex(matchedIndex);
       } else {
         // open the browser
@@ -236,13 +239,7 @@ const VideoScreen = () => {
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
           vertical={true}
-          getItemLayout={(data, index) => (
-            {length: getScreenHeight(), offset: getScreenHeight() * index, index}
-          )}
-          firstItem={curItemIndex}
-          initialNumToRender={50}
-          initialScrollIndex={curItemIndex}
-          
+          initialNumToRender={100}
           // initialNumToRender={50}
           // lockScrollWhileSnapping={true}
           windowSize={5}

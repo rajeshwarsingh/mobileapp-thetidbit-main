@@ -122,3 +122,9 @@ https://documentation.onesignal.com/docs/customize-notification-icons
 
 ## url shortner 
 https://rapidapi.com/BigLobster/api/url-shortener-service/
+
+
+## carousal - react-native-snap-carousel  Important documents
+https://github.com/meliorence/react-native-snap-carousel/blob/master/doc/PROPS_METHODS_AND_GETTERS.md
+https://reactnative.dev/docs/flatlist#getitemlayout
+https://reactnative.dev/docs/flatlist#getitemlayout

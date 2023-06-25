@@ -22,6 +22,8 @@ const _handlePressButtonAsync = async (url,title) => {
 
 export async function handleDeeplinkUrl() {
 
+  console.log("******************************************************handleDeeplinkUrl")
+
   const handleDeepLink = (e) => {
     let data = Linking.parse(e.url)
     console.log("######################################route1 :",data);

@@ -14,11 +14,26 @@ import {
 } from '../constants/Dimens';
 import { GRAY, WHITE, DARK_GRAY, LIGHT_BLUE } from '../constants/Colors';
 import { momentCalendarConfig, FONT_REGULAR } from '../constants/Constants';
+import { getScreenWidth, getScreenHeight } from '../helpers/DimensionsHelper';
 import { BannerAds } from '../components/AdMobComponent';
+import QuoteAndImage from '../components/QuoteAndImage';
 import { getShortUrl } from '../api/index';
 import Loader from "../components/loader-simple";
-
+const SCREEN_WIDTH = getScreenWidth();
+const SCREEN_HEIGHT = getScreenHeight();
 export default function NewsCard(props) {
+
+  const {
+    source_name,
+    title,
+    image_url,
+    content,
+    description,
+    bottom_headline,
+    bottom_text,
+    sourceLink,
+    key,
+  } = props.data;
 
   const [imageError, setImageError] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -43,20 +58,9 @@ export default function NewsCard(props) {
       .join(' ');
   };
 
-  const {
-    source_name,
-    title,
-    image_url,
-    content,
-    description,
-    bottom_headline,
-    bottom_text,
-    sourceLink,
-  } = props.data;
-
   const handleShare = async () => {
     setVisible(true);
-    const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}&newsInxShow=${encodeURIComponent(title)}`);
+    const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}&newsInxShow=${encodeURIComponent(key)}`);
     let imagePath = null;
     RNFetchBlob.config({
       fileCache: true,
@@ -91,14 +95,11 @@ export default function NewsCard(props) {
       });
   }
 
-  const options = { wordwrap: 400 };
-  const text = convert((content ? content : description)?.substr(0, 400), options);
-
   const ShareAndReadme = () => {
     return (
       <View style={{
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',
       }}>
         <Text onPress={async () => await WebBrowser.openBrowserAsync(sourceLink)} style={{
           fontSize: 16,
@@ -110,7 +111,7 @@ export default function NewsCard(props) {
           fontWeight: 'bold',
           marginHorizontal: 10,
           color: LIGHT_BLUE,
-        }}>Share</Text>
+        }}>Share news</Text>
       </View>
     );
   }
@@ -119,7 +120,19 @@ export default function NewsCard(props) {
     setImageError(true);
   };
 
-  let descriptionText = text.replace(/\[.*\]$/, '');
+  const showDescription = () => {
+    const options = { wordwrap: 400 };
+    const text = convert((content ? content : description)?.substr(0, 400), options);
+    let descriptionText = text.replace(/\[.*\]$/, '');
+    return (descriptionText || '').replace(/\s{2,}/g, ' ') // MORE THAN 2 SPACE TRIM TO ONE
+  }
+
+  // const isQuoteShow = () => {
+  //   const contentLength = title + showDescription() || '';
+  //   if (contentLength.length < 260) return true;
+  //   return false
+  // }
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -144,11 +157,11 @@ export default function NewsCard(props) {
         {/* HANDLE IMAGE */}
 
       </View>
-
       <View style={[styles.middle, styles.contentPadding]}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{(descriptionText || '').replace(/\s{2,}/g, ' ')}</Text>
+        <Text style={styles.description}>{showDescription()}</Text>
         <Loader visible={visible} />
+        {QuoteAndImage(title + showDescription() || '')}
         <ShareAndReadme />
         <Text style={styles.byLine} numberOfLines={1} ellipsizeMode="tail"> {getByLineText()}</Text>
       </View>
@@ -161,6 +174,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     backgroundColor: WHITE,
+    // borderWidth: 1,
+    heighl: SCREEN_HEIGHT,
   },
   top: {
     backgroundColor: WHITE,

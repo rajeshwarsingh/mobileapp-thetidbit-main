@@ -18,14 +18,12 @@ const _handlePressButtonAsync = async (url) => {
 export async function handleOSPushNotification() {
   let userData = await getUserProfile()
 
- 
-
   OneSignal.setAppId(Constants.manifest.extra.oneSignalAppId);
 
   OneSignal.setLogLevel(6, 0);
 
   // SET USERID TO SEND NOTIFICATION TO SPECIFICE USER
-  OneSignal.setExternalUserId("+918983712448", (results) => {
+  OneSignal.setExternalUserId(userData?.mobile, (results) => {
     // Push can be expected in almost every situation with a success status, but
     // as a pre-caution its good to verify it exists
     if (results.push && results.push.success) {
@@ -56,13 +54,13 @@ export async function handleOSPushNotification() {
   });
 
   // HANDLING WHEN NOTIFICAITON OPENED
-  OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
-    const { action, notification } = openedEvent;
-    const { url = "", title } = notification?.additionalData;
-    setTimeout(()=>{
-      NavigationService.navigate('videoScreen',{notiOrShareCliecked:true,title, url})
-    },1000)
+  // OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
+  //   const { action, notification } = openedEvent;
+  //   const { url = "", title } = notification?.additionalData;
+  //   setTimeout(()=>{
+  //     NavigationService.navigate('videoScreen',{notiOrShareCliecked:true,title, url})
+  //   },1000)
     
-  });
+  // });
 }
 
