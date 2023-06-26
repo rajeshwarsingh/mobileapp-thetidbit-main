@@ -177,7 +177,11 @@ const VideoScreen = () => {
 
   useEffect(() => {
     try {
-      handleDisplayNews();
+      setBreakingNews([]);
+      setTimeout(()=>{
+        handleDisplayNews();
+      },0)
+      
     } catch (e) {
       // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
     }
