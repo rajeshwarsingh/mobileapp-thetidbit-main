@@ -15,10 +15,10 @@ import {
 import { GRAY, WHITE, DARK_GRAY, LIGHT_BLUE } from '../constants/Colors';
 import { momentCalendarConfig, FONT_REGULAR } from '../constants/Constants';
 import { getScreenWidth, getScreenHeight } from '../helpers/DimensionsHelper';
-import { BannerAds } from '../components/AdMobComponent';
-import QuoteAndImage from '../components/QuoteAndImage';
+import { BannerAds } from './AdMobComponent';
+import QuoteAndImage from './QuoteAndImage';
 import { getShortUrl } from '../api/index';
-import Loader from "../components/loader-simple";
+import Loader from "./loader-simple";
 const SCREEN_WIDTH = getScreenWidth();
 const SCREEN_HEIGHT = getScreenHeight();
 export default function NewsCard(props) {
@@ -132,6 +132,20 @@ export default function NewsCard(props) {
   //   if (contentLength.length < 260) return true;
   //   return false
   // }
+  
+  return (
+    <View style={styles1.cardContainer} key={key}>
+      <View style={styles.bannerContainer}>
+        <BannerAds />
+      </View>
+      <Image source={{ uri: image_url }} style={styles1.image} />
+      <View style={styles1.cardContent}>
+        <Text style={styles1.title}>{title}</Text>
+        <Text style={styles1.description}>{showDescription()}</Text>
+        <ShareAndReadme />
+      </View>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
@@ -168,6 +182,49 @@ export default function NewsCard(props) {
     </View>
   );
 }
+
+const styles1 = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  cardContainer: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    // borderRadius: 10,
+    // marginHorizontal: 20,
+    // marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 5,
+  },
+  bannerContainer: {
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    flex: 2,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  cardContent: {
+    flex: 2,
+    padding: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 16,
+  },
+});
 
 const styles = StyleSheet.create({
   container: {

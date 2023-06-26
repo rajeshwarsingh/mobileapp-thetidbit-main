@@ -35,7 +35,7 @@ const SplashScreen = (props) => {
   setTimeout(() => {
     checkNavigation();
     // return props.navigation.push('verificationScreen');
-  }, 100);
+  }, 0);
 
   return (
     <SafeAreaView
