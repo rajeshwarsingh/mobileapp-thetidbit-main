@@ -38,11 +38,13 @@ const HomeScreen = (props) => {
   useEffect(() => {
     setVisible(true);
     getNewsApi({newsType:'home'}).then((response) => {
+      setVisible(false);
       setBreakingNews(response?.data?.breaking);
       setLocalNews(response.data.health);
       setNationalNews(response.data.entertainment);
       setWorldNews(response.data.sports);
       setPoliticsNews(response.data.technology);
+    }).catch((e)=>{
       setVisible(false);
     });
   }, [i18n.language]);

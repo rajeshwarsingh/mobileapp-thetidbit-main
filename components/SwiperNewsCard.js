@@ -142,6 +142,7 @@ export default function NewsCard(props) {
       <View style={styles1.cardContent}>
         <Text style={styles1.title}>{title}</Text>
         <Text style={styles1.description}>{showDescription()}</Text>
+        {QuoteAndImage(title + showDescription() || '')}
         <ShareAndReadme />
       </View>
     </View>
@@ -209,8 +210,8 @@ const styles1 = StyleSheet.create({
   },
   image: {
     flex: 2,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    // borderTopLeftRadius: 10,
+    // borderTopRightRadius: 10,
   },
   cardContent: {
     flex: 2,
@@ -218,11 +219,21 @@ const styles1 = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
+    // fontWeight: 'bold',
+    // marginBottom: 5,
+
+    fontFamily: 'Roboto-Regular',
+    fontWeight: '400',
+    fontSize: 19,
+    marginTop: 12,
   },
   description: {
-    fontSize: 16,
+    // fontSize: 16,
+    fontWeight: '400',
+    fontSize: FONT_SIZE_LARGE,
+    marginTop: 7,
+    lineHeight: 25,
+    color: GRAY,
   },
 });
 

@@ -114,7 +114,20 @@ const VideoScreen = () => {
     }
   }, [breakingNews])
 
-  const _getNewsAndupdateCache = async () => {
+  const _ClickedNotiOrSHare = (url) => {
+    if (url) {
+      const matchedIndex = breakingNews.findIndex((item) => item.sourceLink == url);
+      if (matchedIndex !== -1) {
+        console.log("_ClickedNotiOrSHare Matched Index :",matchedIndex)
+        setCurItemIndex(matchedIndex);
+      } else {
+        // open the browser
+        _handlePressButtonAsync(url)
+      }
+    }
+  }
+
+  const _getNewsAndupdateCache = async (cacheData) => {
     // CALL NEWS API
     const newsData = await getNewsApi({ newsType: 'swapable' });
     let formatedBreakingNews = newsData?.data.map((news) => {
@@ -133,7 +146,9 @@ const VideoScreen = () => {
     });
     setVisible(false);
     // ADD THE CONDITION WHEN TO UPDATE
-    if (true) {
+    if(cacheData.length>0 && formatedBreakingNews.length>0 && cacheData[0]['sourceLink'] == formatedBreakingNews[0]['sourceLink']){
+      return;
+    }else{
       // UPDATE NEWS
       setBreakingNews(formatedBreakingNews);
 
@@ -142,65 +157,31 @@ const VideoScreen = () => {
     }
   }
 
-  const _ClickedNotiOrSHare = (url) => {
-    if (url) {
-      const matchedIndex = breakingNews.findIndex((item) => item.sourceLink == url);
-      if (matchedIndex !== -1) {
-        console.log("_ClickedNotiOrSHare Matched Index :",matchedIndex)
-        setCurItemIndex(matchedIndex);
-      } else {
-        // open the browser
-        _handlePressButtonAsync(url)
-      }
-    }
-  }
-
   const handleDisplayNews = async () => {
+    setVisible(true);
     // CHECK CACHED NEWSDATA
     let cacheData = await getSwapNewsCacheData();
-
     // IF CACHE NOT AVAILABLE - CALL METHOD GET NEWS AND UPDATE CACHE
     if (!cacheData) {
-      
-      setVisible(true);
-      return _getNewsAndupdateCache();
+      return _getNewsAndupdateCache([]);
     }
 
+    setVisible(false);
     // IF CACHE AVAILABLE
     // SET CACHED NEWS
     setBreakingNews(cacheData);
 
     // CALL METHOD GET NEWS AND UPDATE CACHE
-    _getNewsAndupdateCache();
+    _getNewsAndupdateCache(cacheData);
   }
 
   useEffect(() => {
     try {
-      setBreakingNews([])
       handleDisplayNews();
     } catch (e) {
       // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
     }
   }, [i18n.language, category]);
-
-  const renderItem = ({ item, index }) => {
-    return (
-      <NewsCard key={String(index)} data={item} />
-    );
-  };
-
-
-  
-  // return (
-  //   <Swiper style={styles.wrapper}
-  //     showsPagination={false}
-  //     horizontal={false}
-  //   >
-  //     {breakingNews.map((item,index) => (
-  //       <NewsCard key={String(index)} data={item} />
-  //       ))}
-  //   </Swiper>
-  // )
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
@@ -220,7 +201,7 @@ const VideoScreen = () => {
             marginHorizontal: Default.fixPadding * 1.5,
           }}
         >
-          swip screen
+          {tr("video")}
         </Text>
       </View>
       <Loader visible={visible} />

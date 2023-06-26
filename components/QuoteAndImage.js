@@ -18,6 +18,7 @@ import { momentCalendarConfig, FONT_REGULAR } from '../constants/Constants';
 import { getScreenWidth, getScreenHeight } from '../helpers/DimensionsHelper';
 import { BannerAds } from '../components/AdMobComponent';
 import { getShortUrl } from '../api/index';
+import config from '../config';
 import Loader from "../components/loader-simple";
 const SCREEN_WIDTH = getScreenWidth();
 const SCREEN_HEIGHT = getScreenHeight();
@@ -37,7 +38,7 @@ const QuoteAndImage = (contentLength) => {
   let imageUrl = quotes[0]['image'];
   let quote = quotes[0]['quote'];
 
-  if (true || contentLength?.length > 260) {
+  if (config.disableQuote || contentLength?.length > 260) {
     return null;
   } else if (contentLength?.length > 230) {
      imageUrl = quotes[1]['image'];
