@@ -185,7 +185,7 @@ const VideoScreen = () => {
       // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
     }
   }, [i18n.language, category]);
-
+  alert('eas update test')
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
       <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
@@ -204,7 +204,7 @@ const VideoScreen = () => {
             marginHorizontal: Default.fixPadding * 1.5,
           }}
         >
-          {tr("video")}
+          {tr("video")} - Daily News
         </Text>
       </View>
       <Loader visible={visible} />
