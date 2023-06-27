@@ -25,38 +25,18 @@ export default function NewsCard(props) {
 
   const {
     source_name,
-    title,
-    image_url,
-    content,
-    description,
+    title="",
+    image_url="",
+    content="",
+    description="",
     bottom_headline,
     bottom_text,
-    sourceLink,
+    sourceLink="",
     key,
   } = props.data;
 
   const [imageError, setImageError] = useState(false);
   const [visible, setVisible] = useState(false);
-
-  getByLineText = () => {
-    const { byline_1, created_at } = props.data;
-    if (!byline_1) {
-      return null;
-    }
-
-    return byline_1
-      .map(item => {
-        const { type, text } = item;
-        if (type === 'TEXT') {
-          return text.trim();
-        } else if (type === 'TIME') {
-          return moment(created_at).calendar(null, momentCalendarConfig);
-        } else {
-          return '';
-        }
-      })
-      .join(' ');
-  };
 
   const handleShare = async () => {
     setVisible(true);
@@ -126,82 +106,50 @@ export default function NewsCard(props) {
     let descriptionText = text.replace(/\[.*\]$/, '');
     return (descriptionText || '').replace(/\s{2,}/g, ' ') // MORE THAN 2 SPACE TRIM TO ONE
   }
-
-  // const isQuoteShow = () => {
-  //   const contentLength = title + showDescription() || '';
-  //   if (contentLength.length < 260) return true;
-  //   return false
-  // }
   
   return (
-    <View style={styles1.cardContainer} key={key}>
+    <View style={styles.cardContainer} key={key}>
       <View style={styles.bannerContainer}>
         <BannerAds />
       </View>
-      <Image source={{ uri: image_url }} style={styles1.image} />
-      <View style={styles1.cardContent}>
-        <Text style={styles1.title}>{title}</Text>
-        <Text style={styles1.description}>{showDescription()}</Text>
-        {QuoteAndImage(title + showDescription() || '')}
-        <ShareAndReadme />
-      </View>
-    </View>
-  );
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.top}>
-        <View>
-          <BannerAds />
-        </View>
-        {/* HANDLE IMAGE */}
-        {(image_url && !imageError) ? (
+      {/* HANDLE IMAGE */}
+      {(image_url && !imageError) ? (
           <Image
             source={{ uri: image_url }}
-            style={{ flex: 1 }}
-            contentFit="cover"
+             style={styles.image}
             onError={handleImageError}
           />
         ) : (
           <Image
             source={{ uri: 'https://res.cloudinary.com/dkydl3enp/image/upload/v1686501064/Picsart_23-06-11_21-57-08-972_yvzlrb.jpg' }}
-            style={{ flex: 1 }}
-            contentFit="cover"
+             style={styles.image}
           />
         )}
         {/* HANDLE IMAGE */}
-
-      </View>
-      <View style={[styles.middle, styles.contentPadding]}>
+      <View style={styles.cardContent}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{showDescription()}</Text>
         <Loader visible={visible} />
         {QuoteAndImage(title + showDescription() || '')}
         <ShareAndReadme />
-        <Text style={styles.byLine} numberOfLines={1} ellipsizeMode="tail"> {getByLineText()}</Text>
       </View>
     </View>
   );
 }
 
-const styles1 = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   cardContainer: {
     flex: 1,
     backgroundColor: '#ffffff',
-    // borderRadius: 10,
-    // marginHorizontal: 20,
-    // marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-    // elevation: 5,
   },
   bannerContainer: {
     height: 50,
@@ -210,8 +158,6 @@ const styles1 = StyleSheet.create({
   },
   image: {
     flex: 2,
-    // borderTopLeftRadius: 10,
-    // borderTopRightRadius: 10,
   },
   cardContent: {
     flex: 2,
@@ -219,92 +165,16 @@ const styles1 = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    // fontWeight: 'bold',
-    // marginBottom: 5,
-
     fontFamily: 'Roboto-Regular',
     fontWeight: '400',
     fontSize: 19,
     marginTop: 12,
   },
   description: {
-    // fontSize: 16,
     fontWeight: '400',
     fontSize: FONT_SIZE_LARGE,
     marginTop: 7,
     lineHeight: 25,
     color: GRAY,
-  },
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: WHITE,
-    // borderWidth: 1,
-    heighl: SCREEN_HEIGHT,
-  },
-  top: {
-    backgroundColor: WHITE,
-    flex: 6,
-  },
-  middle: {
-    backgroundColor: WHITE,
-    flex: 5,
-  },
-  footer: {
-    flex: 0.9,
-    backgroundColor: '#e5e5e5',
-    justifyContent: 'center',
-    backgroundColor: DARK_GRAY,
-  },
-  contentPadding: {
-    paddingHorizontal: 12,
-  },
-  title: {
-    fontFamily: 'Roboto-Regular',
-    fontWeight: '400',
-    fontSize: 19,
-    marginTop: 12,
-  },
-  description: {
-    // fontFamily: FONT_REGULAR,
-    fontWeight: '400',
-    fontSize: FONT_SIZE_LARGE,
-    marginTop: 7,
-    lineHeight: 25,
-    color: GRAY,
-  },
-  readMore: {
-    // fontFamily: FONT_REGULAR,
-    fontWeight: '400',
-    fontSize: FONT_SIZE_LARGE,
-    marginTop: 7,
-    lineHeight: 25,
-    color: LIGHT_BLUE,
-  },
-  byLine: {
-    // fontFamily: FONT_LIGHT,
-    fontWeight: '300',
-    fontSize: FONT_SIZE_NORMAL,
-    marginTop: 5,
-    color: GRAY,
-    opacity: 0.7,
-  },
-  footerTitle: {
-    // fontFamily: FONT_REGULAR,
-    fontWeight: '400',
-    color: WHITE,
-    fontSize: FONT_SIZE_NORMAL,
-    fontWeight: '600',
-  },
-  footerSubtitle: {
-    color: WHITE,
-    fontWeight: '300',
-    // fontFamily: FONT_LIGHT,
-    fontSize: FONT_SIZE_SMALL,
-    fontWeight: '400',
-    marginTop: 2,
   },
 });

@@ -9,13 +9,10 @@ import {
 } from "react-native";
 import * as WebBrowser from 'expo-web-browser';
 import { useTranslation } from "react-i18next";
-import Carousel from 'react-native-snap-carousel';
 import * as Updates from 'expo-updates';
 import * as Linking from 'expo-linking';
 import OneSignal from 'react-native-onesignal';
 import Constants from "expo-constants";
-// import { AppRegistry, StyleSheet, Text, View } from 'react-native'
- 
 import Swiper from 'react-native-swiper'
 import { Colors, Fonts, Default } from "../constants/style";
 import { getNewsApi } from '../api/index';
@@ -24,7 +21,8 @@ import NewsCard from '../components/SwiperNewsCard';
 import ManualUpdate from '../components/ManualUpdate';
 import NavigationContext from '../components/NavigationContext';
 import Loader from "../components/loader";
-import { getSwapNewsCacheData, updateSwapNewsCacheData, logOutput } from "../utils/index"
+import { logOutput } from "../utils/index";
+import { getSwapNewsCacheData, updateSwapNewsCacheData } from "../utils/storeNewsInFile"
 const SCREEN_WIDTH = getScreenWidth();
 OneSignal.setAppId(Constants.manifest.extra.oneSignalAppId);
 
@@ -39,8 +37,6 @@ const VideoScreen = () => {
   function tr(key) {
     return t(`videoScreen:${key}`);
   }
-
-  const carouselRef = useRef(null);
 
   // CODE TO CHECKING UPDATE USING EXPO EAS FOR UPDATE
   useEffect(() => {
@@ -65,6 +61,7 @@ const VideoScreen = () => {
       await Updates.fetchUpdateAsync();
       await Updates.reloadAsync();
     } catch (error) {
+      alert(`update app failed:${error}`)
       // You can also add an alert() to see the error message in case of an error when fetching updates.
       // alert(`Error fetching latest Expo update: ${error}`);
     }
@@ -99,6 +96,9 @@ const VideoScreen = () => {
 
     // HANDLING WHEN NOTIFICAITON OPENED
     OneSignal.setNotificationOpenedHandler(async (openedEvent) => {
+      // setBreakingNews([]);
+      // await handleDisplayNews();
+
       const { notification } = openedEvent;
       const { url = "" } = notification?.additionalData;
       if (url) {
@@ -118,7 +118,6 @@ const VideoScreen = () => {
     if (url) {
       const matchedIndex = breakingNews.findIndex((item) => item.sourceLink == url);
       if (matchedIndex !== -1) {
-        console.log("_ClickedNotiOrSHare Matched Index :",matchedIndex)
         setCurItemIndex(matchedIndex);
       } else {
         // open the browser
@@ -144,14 +143,13 @@ const VideoScreen = () => {
         sourceLink: news.sourceLink,
       }
     });
-    setVisible(false);
-    // ADD THE CONDITION WHEN TO UPDATE
-    if(cacheData.length>0 && formatedBreakingNews.length>0 && cacheData[0]['sourceLink'] == formatedBreakingNews[0]['sourceLink']){
+    
+    // CACHE DATA AND API DATA IF BOTH ARE SAME DO NOTHING ELSE UPDATE
+    if (cacheData.length > 0 && formatedBreakingNews.length > 0 && cacheData[0]['sourceLink'] == formatedBreakingNews[0]['sourceLink']) {
       return;
-    }else{
+    } else {
       // UPDATE NEWS
       setBreakingNews(formatedBreakingNews);
-
       // UPDATE THE CACHE
       updateSwapNewsCacheData(formatedBreakingNews);
     }
@@ -161,27 +159,28 @@ const VideoScreen = () => {
     setVisible(true);
     // CHECK CACHED NEWSDATA
     let cacheData = await getSwapNewsCacheData();
+    
     // IF CACHE NOT AVAILABLE - CALL METHOD GET NEWS AND UPDATE CACHE
-    if (!cacheData) {
+    if (cacheData && Array.isArray(cacheData) && cacheData.length > 0) {
+      setVisible(false);
+      // IF CACHE AVAILABLE SET CACHED NEWS
+      setBreakingNews(cacheData);
+      setVisible(false);
+
+      // CALL METHOD GET NEWS AND UPDATE CACHE
+      _getNewsAndupdateCache(cacheData);
+    } else {
       return _getNewsAndupdateCache([]);
     }
-
-    setVisible(false);
-    // IF CACHE AVAILABLE
-    // SET CACHED NEWS
-    setBreakingNews(cacheData);
-
-    // CALL METHOD GET NEWS AND UPDATE CACHE
-    _getNewsAndupdateCache(cacheData);
   }
 
   useEffect(() => {
     try {
       setBreakingNews([]);
-      setTimeout(()=>{
+      setTimeout(() => {
         handleDisplayNews();
-      },0)
-      
+      }, 0)
+
     } catch (e) {
       // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
     }
@@ -210,18 +209,15 @@ const VideoScreen = () => {
       </View>
       <Loader visible={visible} />
       <View style={styles.container}>
-        {/* {breakingNews.length > 0 && <Swiper */}
         {breakingNews.length > 0 && <Swiper
-        automaticallyAdjustContentInsets={true}
+          automaticallyAdjustContentInsets={true}
           showsPagination={false}
           horizontal={false}
           index={curItemIndex}
           loop={false}
-          // height={getScreenHeight()}
-          // width={SCREEN_WIDTH}
         >
           {breakingNews.map((item, index) => (
-            <NewsCard  key={String(index)} data={item} />
+            <NewsCard key={String(index)} data={item} />
           ))}
         </Swiper>}
       </View>

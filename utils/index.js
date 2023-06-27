@@ -34,20 +34,22 @@ export function compareAppVersions(versionCur, versionPlaystore) {
 export const getSwapNewsCacheData = async () => {
   try {
     let userData = await AsyncStorage.getItem(chacheSwap);
-    userData = JSON.parse(userData)
+    userData = JSON.parse(userData);
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@7",userData,"@@@@@@@@@@7")
     return userData
   } catch (e) {
+    console.log("Error in storing swap cache data in local storage:", e)
     return {};
   }
 }
 
 export const updateSwapNewsCacheData = async (data = {}) => {
-
-  if(typeof data === 'object') data = JSON.stringify(data);
   try {
+  if(typeof data === 'object') data = JSON.stringify(data);
     await AsyncStorage.setItem(chacheSwap, data);
     return "success"
   } catch (e) {
+    console.log("Error in storing swap cache data in local storage:", e)
     return {};
   }
 } 

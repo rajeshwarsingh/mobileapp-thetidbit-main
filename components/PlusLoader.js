@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet, Animated, Easing, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 const { height, width } = Dimensions.get('window');
@@ -6,7 +6,6 @@ const { height, width } = Dimensions.get('window');
 class Pulse extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.anim = new Animated.Value(0);
 	}
 
@@ -141,7 +140,7 @@ export default class LocationPulseLoader extends React.Component {
 					}}
 				>
 					<Image
-						source={{ uri: 'https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700' }}
+						source={{ uri: avatar }}
 						style={{
 							width: size,
 							height: size,
@@ -159,7 +158,7 @@ LocationPulseLoader.propTypes = {
 	interval: PropTypes.number,
 	size: PropTypes.number,
 	pulseMaxSize: PropTypes.number,
-	avatar: PropTypes.string.isRequired,
+	avatar: PropTypes.string,
 	avatarBackgroundColor: PropTypes.string,
 	pressInValue: PropTypes.number,
 	pressDuration: PropTypes.number,
@@ -172,7 +171,7 @@ LocationPulseLoader.defaultProps = {
 	interval: 2000,
 	size: 100,
 	pulseMaxSize: 250,
-	avatar: undefined,
+	avatar: "https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700",
 	avatarBackgroundColor: 'white',
 	pressInValue: 0.8,
 	pressDuration: 150,

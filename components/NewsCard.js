@@ -61,7 +61,7 @@ export default function NewsCard(props) {
   const handleShare = async () => {
     setVisible(true);
     const shortLink = await getShortUrl(`https://www.thetidbit.in/sharenews?newsInx=${sourceLink}&newsInxShow=${encodeURIComponent(key)}`);
-    let imagePath = null;
+    let imagePath = "";
     RNFetchBlob.config({
       fileCache: true,
     })
