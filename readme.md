@@ -128,3 +128,14 @@ https://rapidapi.com/BigLobster/api/url-shortener-service/
 https://github.com/meliorence/react-native-snap-carousel/blob/master/doc/PROPS_METHODS_AND_GETTERS.md
 https://reactnative.dev/docs/flatlist#getitemlayout
 https://reactnative.dev/docs/flatlist#getitemlayout
+
+
+## EAS Update 
+https://docs.expo.dev/eas-update/how-it-works/
+
+-once developement completed 
+
+-eas build
+-eas submit --platform android
+-eas update --auto
+-eas channel:edit main --branch main

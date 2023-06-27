@@ -927,7 +927,7 @@ const HomeScreen = (props) => {
           <TouchableOpacity
             onPress={() => props.navigation.navigate("breakingNewsScreen")}
           >
-            <Text style={{ ...Fonts.Bold16Primary }}>{tr("seeAll")}</Text>
+            <Text style={{ ...Fonts.Bold16Primary }}>{tr("seeAll")}...</Text>
           </TouchableOpacity>
         </View>
 
