@@ -3,7 +3,7 @@
     "scheme": "thetidbit",
     "name": "TheTidbit",
     "slug": "mobileapp-thetidbit",
-    "version": "3.0.73",
+    "version": "3.0.74",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,7 @@
     "updates": {
       "checkAutomatically": "ON_ERROR_RECOVERY",
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/d387da48-df44-42c3-8ba7-32a994a8c149"
+      "url": "exp://u.expo.dev/d387da48-df44-42c3-8ba7-32a994a8c149?channel-name=main&runtime-version=exposdk%3A48.0.0"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -47,7 +47,7 @@
           ]
         }
       ],
-      "versionCode": 100,
+      "versionCode": 101,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
