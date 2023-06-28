@@ -22,6 +22,7 @@ import ManualUpdate from '../components/ManualUpdate';
 import NavigationContext from '../components/NavigationContext';
 import Loader from "../components/loader";
 import { logOutput } from "../utils/index";
+import ExpoUpdate from '../components/ExpoUpdate';
 import { getSwapNewsCacheData, updateSwapNewsCacheData } from "../utils/storeNewsInFile"
 const SCREEN_WIDTH = getScreenWidth();
 OneSignal.setAppId(Constants.manifest.extra.oneSignalAppId);
@@ -40,7 +41,7 @@ const VideoScreen = () => {
 
   // CODE TO CHECKING UPDATE USING EXPO EAS FOR UPDATE
   useEffect(() => {
-    checkUpdate()
+    // checkUpdate()
     reactsToUpdate();
   }, []);
 
@@ -59,37 +60,42 @@ const VideoScreen = () => {
         alert("NO_UPDATE_AVAILABLE")
       }
       if(event.type === Updates.UpdateEventType.ERROR){
+        const error = event.error;
         console.log("ERROR IN UPDATE :*****************")
-        alert("ERROR IN UPDATE")
+        alert(error)
+        alert(`ERROR IN UPDATE: ${typeof error==='object'?JSON.stringify(error):error}`)
       }
     })
   }
-  // EXPO PUBLISH UPDATE TEST-----------------
+  // EXPO PUBLISH UPDATE TEST-END----------------
 
-  async function checkUpdate() {
-    try {
-      const update = await Updates.checkForUpdateAsync();
+  // MANUAL UPDATE
+  // async function checkUpdate() {
+  //   try {
+  //     const update = await Updates.checkForUpdateAsync();
 
-      if (update.isAvailable) {
-        setIsUpdateAvailable(true);
-      }
-    } catch (error) {
-      // You can also add an alert() to see the error message in case of an error when fetching updates.
-      // console.log(`Error fetching latest Expo update: ${error}`);
-    }
-  }
+  //     if (update.isAvailable) {
+  //       setIsUpdateAvailable(true);
+  //     }
+  //   } catch (error) {
+  //     // You can also add an alert() to see the error message in case of an error when fetching updates.
+  //     // console.log(`Error fetching latest Expo update: ${error}`);
+  //   }
+  // }
 
-  async function onFetchUpdateAsync() {
-    try {
-      alert('onFetchUpdateAsync called')
-      await Updates.fetchUpdateAsync();
-      await Updates.reloadAsync();
-    } catch (error) {
-      alert(`update app failed:${error}`)
-      // You can also add an alert() to see the error message in case of an error when fetching updates.
-      // alert(`Error fetching latest Expo update: ${error}`);
-    }
-  }
+
+  // async function onFetchUpdateAsync() {
+  //   try {
+  //     alert('onFetchUpdateAsync called')
+  //     await Updates.fetchUpdateAsync();
+  //     await Updates.reloadAsync();
+  //   } catch (error) {
+  //     alert(`update app failed:${error}`)
+  //     // You can also add an alert() to see the error message in case of an error when fetching updates.
+  //     // alert(`Error fetching latest Expo update: ${error}`);
+  //   }
+  // }
+    // MANUAL UPDATE END
 
   const _handlePressButtonAsync = async (url) => {
     await WebBrowser.openBrowserAsync(url);
@@ -209,12 +215,10 @@ const VideoScreen = () => {
       // logOutput({functionName : 'Video screen page : handleDisplayNews', msg:`Chache block: ${e}`});
     }
   }, [i18n.language, category]);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
       <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
-      {isUpdateAvailable && <View>
-        <Button title="Fetch update" onPress={onFetchUpdateAsync} />
-      </View>}
       <View
         style={{
           paddingVertical: Default.fixPadding,
@@ -227,8 +231,9 @@ const VideoScreen = () => {
             marginHorizontal: Default.fixPadding * 1.5,
           }}
         >
-          {tr("video")} - Daily News
+          {tr("video")} : Daily News
         </Text>
+        <ExpoUpdate/>
       </View>
       <Loader visible={visible} />
       <View style={styles.container}>
