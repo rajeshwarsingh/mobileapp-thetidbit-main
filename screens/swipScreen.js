@@ -41,7 +41,30 @@ const VideoScreen = () => {
   // CODE TO CHECKING UPDATE USING EXPO EAS FOR UPDATE
   useEffect(() => {
     checkUpdate()
+    reactsToUpdate();
   }, []);
+
+  // EXPO PUBLISH UPDATE TEST-----------------
+  const reactsToUpdate = async()=>{
+    Updates.addListener((event)=>{
+      console.log("UPDATE EVENT LISTERER :*****************",JSON.stringify(event))
+      alert("UPDATE EVENT LISTERER :*****************")
+      if(event.type === Updates.UpdateEventType.UPDATE_AVAILABLE){
+        console.log("UPDATE_AVAILABLE :*****************")
+        Updates.reloadAsync();
+        alert("Alert available restart the app")
+      }
+      if(event.type === Updates.UpdateEventType.NO_UPDATE_AVAILABLE){
+        console.log("NO_UPDATE_AVAILABLE :*****************")
+        alert("NO_UPDATE_AVAILABLE")
+      }
+      if(event.type === Updates.UpdateEventType.ERROR){
+        console.log("ERROR IN UPDATE :*****************")
+        alert("ERROR IN UPDATE")
+      }
+    })
+  }
+  // EXPO PUBLISH UPDATE TEST-----------------
 
   async function checkUpdate() {
     try {
@@ -58,6 +81,7 @@ const VideoScreen = () => {
 
   async function onFetchUpdateAsync() {
     try {
+      alert('onFetchUpdateAsync called')
       await Updates.fetchUpdateAsync();
       await Updates.reloadAsync();
     } catch (error) {
@@ -203,7 +227,7 @@ const VideoScreen = () => {
             marginHorizontal: Default.fixPadding * 1.5,
           }}
         >
-          {tr("video")} Daily - News
+          {tr("video")} - Daily News
         </Text>
       </View>
       <Loader visible={visible} />
