@@ -231,7 +231,7 @@ const VideoScreen = () => {
             marginHorizontal: Default.fixPadding * 1.5,
           }}
         >
-          {tr("video")} :--- Daily News
+          {tr("video")} :## Daily News
         </Text>
         <ExpoUpdate/>
       </View>
