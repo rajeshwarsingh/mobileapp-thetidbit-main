@@ -139,3 +139,8 @@ https://docs.expo.dev/eas-update/how-it-works/
 -eas submit --platform android
 -eas update --auto
 -eas channel:edit main --branch main
+
+
+eas build --profile production --platform android
+eas update --branch production --message "Updating the app"
+eas submit --platform android
