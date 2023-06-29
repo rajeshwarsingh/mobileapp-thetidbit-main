@@ -15,7 +15,7 @@
     "updates": {
       "checkAutomatically": "ON_ERROR_RECOVERY",
       "fallbackToCacheTimeout": 0,
-      "url": "exp://u.expo.dev/d387da48-df44-42c3-8ba7-32a994a8c149?channel-name=main&runtime-version=exposdk%3A48.0.0"
+      "url": "https://expo.io/@rajan23024/mobileapp-thetidbit"
     },
     "assetBundlePatterns": [
       "**/*"
