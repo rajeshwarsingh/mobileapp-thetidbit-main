@@ -148,3 +148,7 @@ eas update --branch production --message "Updating the app"
 
 https://exp.host/@rajan23024/mobileapp-thetidbit/index.exp?sdkVersion=48.0.0&channel=production
 https://exp.host/@rajan23024/mobileapp-thetidbit/index.exp?sdkVersion=44.0.0
+
+
+### bugsnag
+https://app.bugsnag.com/thetidbit/thetidbit/errors/649eaf789bc75f0008d08e36?filters[error.status]=for_review&filters[event.since]=30d&filters[app.release_stage]=production&sort=events

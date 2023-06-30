@@ -3,7 +3,7 @@
     "scheme": "thetidbit",
     "name": "TheTidbit",
     "slug": "mobileapp-thetidbit",
-    "version": "3.0.79",
+    "version": "3.0.83",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -49,7 +49,7 @@
           ]
         }
       ],
-      "versionCode": 106,
+      "versionCode": 110,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -63,7 +63,10 @@
       "eas": {
         "projectId": "d387da48-df44-42c3-8ba7-32a994a8c149"
       },
-      "oneSignalAppId": "e20037d9-067f-417f-b8f8-dc919bb0b6dd"
+      "oneSignalAppId": "e20037d9-067f-417f-b8f8-dc919bb0b6dd",
+      "bugsnag": {
+        "apiKey": "9376438721fe01274c9f1939f51219ac"
+      }
     },
     "plugins": [
       "@react-native-firebase/app",
