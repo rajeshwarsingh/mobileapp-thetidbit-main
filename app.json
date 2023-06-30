@@ -15,7 +15,9 @@
     "updates": {
       "checkAutomatically": "ON_ERROR_RECOVERY",
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/d387da48-df44-42c3-8ba7-32a994a8c149"
+      "url": "https://u.expo.dev/d387da48-df44-42c3-8ba7-32a994a8c149",
+      "channel": "production",
+      "releaseChannel": "production"
     },
     "assetBundlePatterns": [
       "**/*"

@@ -4,6 +4,8 @@ import * as Updates from 'expo-updates';
 export default function App() {
 
   async function onFetchUpdateAsync() {
+    alert(`update:${Updates?.releaseChannel}`)
+    alert(`updatemainifest:${Updates?.manifest?.releaseChannel}`)
     try {
       const update = await Updates.checkForUpdateAsync();
 
