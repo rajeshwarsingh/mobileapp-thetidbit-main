@@ -8,9 +8,10 @@ export default function App() {
     alert(`updatemainifest:${Updates?.manifest?.releaseChannel}`)
     try {
       const update = await Updates.checkForUpdateAsync();
+      alert(`updatemainifest:${Updates?JSON.stringify(Updates):''}`)
 
       if (update.isAvailable) {
-        alert('update.isAvailable:true')
+        alert('update.isAvailable:true');
         await Updates.fetchUpdateAsync();
         await Updates.reloadAsync();
       }
@@ -38,7 +39,7 @@ export default function App() {
 
   return (
     <View>
-      <Button title="Fetch update" onPress={onFetchUpdateAsync} />
+      <Button title="Fetch update v1" onPress={onFetchUpdateAsync} />
     </View>
   );
 }

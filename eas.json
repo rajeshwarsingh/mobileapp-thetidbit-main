@@ -13,10 +13,7 @@
       "distribution": "internal"
     },
     "production": {
-      "channel": "production",
-      "env": {
-        "API_URL": "https://company.com/api"
-      }
+      "channel": "production"
     }
   },
   "submit": {

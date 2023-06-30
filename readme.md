@@ -142,8 +142,8 @@ https://docs.expo.dev/eas-update/how-it-works/
 
 
 eas build --profile production --platform android
-eas update --branch production --message "Updating the app"
 eas submit --platform android
+eas update --branch production --message "Updating the app"
 
 
 https://exp.host/@rajan23024/mobileapp-thetidbit/index.exp?sdkVersion=48.0.0&channel=production
